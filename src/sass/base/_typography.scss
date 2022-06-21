@@ -1,0 +1,22 @@
+body {
+  font-family: "Noto Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-black);
+}
+
+.heading-primary {
+  font-size: 14rem;
+  font-weight: 900;
+}
+
+.heading-secondary {
+  font-size: 6rem;
+  font-weight: 900;
+  color: var(--color-black);
+}
+
+.heading-tertiary {
+  font-size: 3rem;
+  font-weight: 400;
+}

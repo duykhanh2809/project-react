@@ -1,0 +1,77 @@
+%flex-column-placeholder {
+  display: flex;
+  flex-direction: column;
+}
+
+%link-direct {
+  display: inline-block;
+  overflow: hidden;
+
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: var(--color-black);
+    position: relative;
+    padding-bottom: 0.7rem;
+  }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    background-image: url("https://punkt-gdynia.pl/wp-content/themes/wp-punkt/img/wave-black.svg");
+    background-repeat: no-repeat;
+    height: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  &:hover::before {
+    animation: moveWave 4s linear infinite;
+  }
+}
+
+@mixin widthLinkDirect($widthSet) {
+  width: $widthSet;
+}
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px: Phone
+600 - 900px: tablet portrait
+900 - 1200px: Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1000px + : Big desktop
+
+breakpoint argument choices: 
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      //600px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      //900px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      //1200px
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      //1800px
+      @content;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+.helper-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.grid--2-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.hidden {
+  display: none;
+}
+
+.copyright {
+  align-self: flex-end;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.heading-secondary-modifier {
+  text-align: right;
+  margin-bottom: 2rem;
+  margin-top: -4rem;
+}
+
+.link__direct {
+  @extend %link-direct;
+  &::before {
+    @include widthLinkDirect(250%);
+  }
+}
+
+.link__direct-modify {
+  @extend %link-direct;
+  &::before {
+    @include widthLinkDirect(165%);
+  }
+}
+
+/***********************/
+
+.u-margin-bottom-small {
+  margin-bottom: 2rem;
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem;
+
+  @include respond(tab-port) {
+    margin-bottom: 5rem;
+  }
+}
+.u-margin-bottom-huge {
+  margin-bottom: 12rem;
+}
+
+.u-margin-top-huge {
+  margin-top: 10rem;
+}
