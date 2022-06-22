@@ -1,29 +1,22 @@
-.link__direct, .link__direct-modify {
-  display: inline-block;
-  overflow: hidden;
-}
-
-.link__direct:link, .link__direct-modify:link, .link__direct:visited, .link__direct-modify:visited {
+.btn-default:link, .btn-default:visited, .btn-custom:link, .btn-custom:visited {
   text-decoration: none;
-  color: var(--color-black);
+  font-size: 1.4rem;
+  color: var(--color-grey-dark-2);
+  padding-bottom: 2px;
   position: relative;
-  padding-bottom: 0.7rem;
+  overflow: hidden;
+  display: inline-block;
 }
 
-.link__direct::before, .link__direct-modify::before {
+.btn-default::after, .btn-custom::after {
   content: "";
   display: inline-block;
-  background-image: url("https://punkt-gdynia.pl/wp-content/themes/wp-punkt/img/wave-black.svg");
-  background-repeat: no-repeat;
-  height: 1rem;
   position: absolute;
   bottom: 0;
   left: 0;
-}
-
-.link__direct:hover::before, .link__direct-modify:hover::before {
-  -webkit-animation: moveWave 4s linear infinite;
-          animation: moveWave 4s linear infinite;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-grey-light-1);
 }
 
 /*
@@ -50,8 +43,12 @@ breakpoint argument choices:
 
 :root {
   --color-black: #000;
-  --color-grey-dark: #222;
-  --color-grey-light: #777;
+  --color-grey-dark-1: #222;
+  --color-grey-dark-2: #333;
+  --color-grey-light-1: #777;
+  --color-grey-light-2: #ddd;
+  --color-white: #fff;
+  --color-selection: #55c57a;
 }
 
 html {
@@ -137,13 +134,8 @@ body {
   font-weight: 400;
 }
 
-.helper-flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+.pad-bottom {
+  padding-bottom: 2px;
 }
 
 .flex-right {
@@ -172,20 +164,6 @@ body {
   font-size: 2.4rem;
   font-weight: 800;
   line-height: 1;
-}
-
-.heading-secondary-modifier {
-  text-align: right;
-  margin-bottom: 2rem;
-  margin-top: -4rem;
-}
-
-.link__direct::before {
-  width: 250%;
-}
-
-.link__direct-modify::before {
-  width: 165%;
 }
 
 /***********************/
@@ -223,9 +201,10 @@ body {
       -ms-flex-align: baseline;
           align-items: baseline;
   padding: 3rem 4rem;
+  position: relative;
 }
 
-.header nav {
+.header__nav {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -237,7 +216,7 @@ body {
           justify-content: space-between;
 }
 
-.header a {
+.header__logo {
   text-decoration: none;
   color: #fff;
   font-size: 2.4rem;
@@ -250,11 +229,15 @@ body {
   font-weight: 400;
 }
 
+.header-modify .header__logo {
+  color: var(--color-black);
+}
+
 .hero__img {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: -2;
   -o-object-fit: cover;
      object-fit: cover;
   height: 100vh;
@@ -271,13 +254,22 @@ body {
   width: 28vw;
   font-size: 1.4rem;
   font-weight: 300;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 1.4rem;
+  z-index: -2;
 }
 
-.hero__content a {
-  text-decoration: none;
-  color: inherit;
-  border-bottom: 1px solid var(--color-grey-light);
-  padding-bottom: 3px;
+.hero__content p:nth-child(1) {
+  font-weight: 600;
 }
 
 .product {
@@ -291,6 +283,10 @@ body {
   font-weight: 400;
 }
 
+.product-modify {
+  color: var(--color-black);
+}
+
 .service {
   list-style: none;
   display: -webkit-box;
@@ -300,5 +296,127 @@ body {
   color: var(--color-grey);
   font-size: 1.4rem;
   font-weight: 400;
+}
+
+.btn {
+  border: none;
+  font-family: inherit;
+  background-color: transparent;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn-default::after {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-default:hover::after {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+.btn-custom:link, .btn-custom:visited {
+  padding-bottom: 1px;
+}
+
+.btn-custom::after {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.btn-custom:hover::after {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.btn-login:link, .btn-login:visited {
+  text-decoration: none;
+  padding: 1.4rem 6.5rem;
+  background-color: var(--color-black);
+  font-size: 1.3rem;
+  color: var(--color-white);
+  font-weight: 500;
+}
+
+.btn-address {
+  color: inherit;
+  text-decoration: none;
+}
+
+.check {
+  position: absolute;
+  top: 10%;
+  right: 0.8%;
+  width: 35%;
+  height: 29rem;
+  border: 1px solid var(--color-black);
+  background-color: var(--color-white);
+  z-index: -1;
+  padding: 2.8rem;
+}
+
+.check__intro {
+  margin: 8rem 0 3rem 0;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--color-grey-light-2);
+}
+
+.check__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer {
+  padding: 3rem 4rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr (1fr)[4];
+      grid-template-columns: 2fr repeat(4, 1fr);
+  -ms-grid-rows: 20rem 10rem;
+      grid-template-rows: 20rem 10rem;
+  gap: 6rem;
+  font-size: 1.4rem;
+  line-height: 1.75;
+  color: var(--color-grey-dark-2);
+}
+
+.footer__heading {
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.footer__about p:nth-child(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.footer ul {
+  list-style: none;
+}
+
+.footer .btn-default {
+  padding-bottom: 0;
 }
 /*# sourceMappingURL=index.css.map */

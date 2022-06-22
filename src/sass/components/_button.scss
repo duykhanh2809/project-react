@@ -1,0 +1,60 @@
+.btn {
+  border: none;
+  font-family: inherit;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &-default {
+    &:link,
+    &:visited {
+      @extend %link-hover;
+    }
+
+    &::after {
+      @extend %link-hover-pseudo;
+      transform: translateX(0);
+      transition: all 0.3s;
+    }
+
+    &:hover::after {
+      transform: translateX(100%);
+    }
+  }
+  &-custom {
+    &:link,
+    &:visited {
+      @extend %link-hover;
+      padding-bottom: 1px;
+    }
+
+    &::after {
+      @extend %link-hover-pseudo;
+      transform: translateX(-100%);
+      transition: all 0.5s;
+    }
+
+    &:hover::after {
+      transform: translateX(0);
+    }
+  }
+
+  &-login {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      padding: 1.4rem 6.5rem;
+      background-color: var(--color-black);
+      font-size: 1.3rem;
+      color: var(--color-white);
+      font-weight: 500;
+    }
+  }
+
+  &-address {
+    color: inherit;
+    text-decoration: none;
+  }
+}

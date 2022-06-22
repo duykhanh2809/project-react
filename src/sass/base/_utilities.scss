@@ -1,8 +1,6 @@
-.helper-flex {
-  display: flex;
-  justify-content: space-between;
+.pad-bottom {
+  padding-bottom: 2px;
 }
-
 .flex-right {
   display: flex;
   justify-content: flex-end;
@@ -22,26 +20,6 @@
   font-size: 2.4rem;
   font-weight: 800;
   line-height: 1;
-}
-
-.heading-secondary-modifier {
-  text-align: right;
-  margin-bottom: 2rem;
-  margin-top: -4rem;
-}
-
-.link__direct {
-  @extend %link-direct;
-  &::before {
-    @include widthLinkDirect(250%);
-  }
-}
-
-.link__direct-modify {
-  @extend %link-direct;
-  &::before {
-    @include widthLinkDirect(165%);
-  }
 }
 
 /***********************/

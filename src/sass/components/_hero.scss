@@ -3,7 +3,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: -2;
     object-fit: cover;
     height: 100vh;
     width: 72vw;
@@ -18,11 +18,14 @@
     width: 28vw;
     font-size: 1.4rem;
     font-weight: 300;
-    a {
-      text-decoration: none;
-      color: inherit;
-      border-bottom: 1px solid var(--color-grey-light);
-      padding-bottom: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.4rem;
+    z-index: -2;
+
+    p:nth-child(1) {
+      font-weight: 600;
     }
   }
 }

@@ -1,0 +1,29 @@
+.footer {
+  padding: 3rem 4rem;
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  grid-template-rows: 20rem 10rem;
+  gap: 6rem;
+  font-size: 1.4rem;
+  line-height: 1.75;
+  color: var(--color-grey-dark-2);
+
+  &__heading {
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+  }
+
+  &__about p:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .btn-default {
+    padding-bottom: 0;
+  }
+}
