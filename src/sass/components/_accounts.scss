@@ -1,0 +1,73 @@
+.account {
+  padding: 3rem 4rem;
+  margin-top: 3rem;
+
+  &-details {
+    margin-left: 25vw;
+
+    h2 {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: fixed;
+    padding: 3rem 4rem;
+    left: 0;
+    top: 0;
+    margin-top: 12rem;
+  }
+
+  &-register {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 10rem);
+    align-items: center;
+    column-gap: 3rem;
+    row-gap: 1rem;
+    font-size: 1.4rem;
+
+    label {
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 1.4rem;
+      border: 1px solid var(--color-grey-light-4);
+      font-family: inherit;
+
+      &:focus {
+        outline: 1px solid var(--color-grey-light-2);
+      }
+    }
+
+    input[type="radio"] {
+      width: initial;
+      margin-right: 1rem;
+
+      & ~ label {
+        display: inline-block;
+        margin-right: 4rem;
+      }
+    }
+
+    input[type="checkbox"] {
+      width: initial;
+      margin-right: 1rem;
+
+      & + label {
+        display: inline-block;
+      }
+    }
+
+    .btn-create {
+      justify-self: end;
+    }
+  }
+}

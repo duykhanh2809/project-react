@@ -1,4 +1,6 @@
 import { Fragment } from "react";
+import FooterForm from "./FooterForm";
+import FooterPayments from "./FooterPayments";
 
 const Footer = () => {
   return (
@@ -88,8 +90,9 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <form>Day la form</form>
-        <div>Cac don vi ho tro thanh toan</div>
+        <FooterForm />
+        <FooterPayments />
+        <p className="footer__extra">Nguyen Duy Khanh - HCMUT</p>
       </footer>
     </Fragment>
   );

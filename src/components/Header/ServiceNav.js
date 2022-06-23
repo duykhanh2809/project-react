@@ -7,7 +7,7 @@ const ServiceNav = function () {
       <li>Search</li>
       <li>Help</li>
       <li>
-        <button className="btn" onClick={accountHandler}>
+        <button className="btn btn-nav" onClick={accountHandler}>
           My Account
         </button>
       </li>

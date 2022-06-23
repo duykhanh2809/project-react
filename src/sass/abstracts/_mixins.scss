@@ -19,10 +19,12 @@
   background-color: var(--color-grey-light-1);
 }
 
-@mixin widthLinkDirect($widthSet) {
-  width: $widthSet;
+%btn-special {
+  padding: 1.4rem 6.5rem;
+  background-color: var(--color-black);
+  font-size: 1.3rem;
+  color: var(--color-white);
 }
-
 // MEDIA QUERY MANAGER
 /*
 0 - 600px: Phone

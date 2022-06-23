@@ -3,7 +3,8 @@
   display: grid;
   grid-template-columns: 2fr repeat(4, 1fr);
   grid-template-rows: 20rem 10rem;
-  gap: 6rem;
+  column-gap: 6rem;
+  row-gap: 4rem;
   font-size: 1.4rem;
   line-height: 1.75;
   color: var(--color-grey-dark-2);
@@ -25,5 +26,44 @@
 
   .btn-default {
     padding-bottom: 0;
+  }
+
+  &__form {
+    grid-column: 1 / span 2;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    label {
+      line-height: 1;
+    }
+    input {
+      border: none;
+      font-family: inherit;
+      border-bottom: 1px solid var(--color-grey-light-1);
+      flex: 0 1 50%;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__image {
+    grid-column: 3 / span 3;
+    display: flex;
+    align-items: center;
+    img:nth-child(1) {
+      width: 40%;
+    }
+  }
+  &__img {
+    filter: grayscale(1);
+    width: 50%;
+  }
+
+  &__extra {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: -2rem;
   }
 }
