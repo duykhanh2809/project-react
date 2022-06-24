@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import ProductNav from "./ProductNav";
 import ServiceNav from "./ServiceNav";
 import Cart from "../Cart/Cart";
@@ -8,9 +10,9 @@ const Header = (props) => {
     props.pages === "hero" ? "header" : "header header-modify";
   return (
     <header className={headerClasses}>
-      <a href="#" className="header__logo">
+      <Link to="/" className="header__logo">
         ETQ.
-      </a>
+      </Link>
       <nav className="header__nav">
         <ProductNav page={props.pages} />
         <ServiceNav />

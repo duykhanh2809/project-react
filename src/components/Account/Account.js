@@ -1,19 +1,14 @@
-import { Fragment } from "react";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import AccountSideBar from "./AccountSideBar";
 import AccountRegister from "./AccountRegister";
+import AccountLogin from "./AccountLogin";
 
 const Account = () => {
   return (
-    <Fragment>
-      <Header pages="" />
-      <main className="account">
-        <AccountSideBar />
-        <AccountRegister />
-      </main>
-      <Footer />
-    </Fragment>
+    <div className="account">
+      <AccountSideBar />
+      <AccountRegister />
+      {/* <AccountLogin /> */}
+    </div>
   );
 };
 

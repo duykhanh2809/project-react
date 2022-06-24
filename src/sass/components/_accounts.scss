@@ -70,4 +70,46 @@
       justify-self: end;
     }
   }
+
+  &-login {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    // CUSTOM DOWN 1
+    grid-template-rows: repeat(3, 10rem);
+    align-items: center;
+    // CUSTOM DOWN 1
+    column-gap: 4rem;
+    row-gap: 1rem;
+    font-size: 1.4rem;
+    //bo sung
+    margin-right: 10vw;
+    margin-top: 3vw;
+    margin-bottom: 5vw;
+
+    label {
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    input {
+      // CUSTOM DOWN 1
+      width: 50%;
+      padding: 1.4rem;
+      border: 1px solid var(--color-grey-light-4);
+      font-family: inherit;
+
+      &:focus {
+        outline: 1px solid var(--color-grey-light-2);
+      }
+    }
+
+    // bo sung
+    div {
+      grid-column: 1/-1;
+    }
+
+    .btn-create {
+      justify-self: end;
+    }
+  }
 }

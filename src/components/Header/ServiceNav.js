@@ -1,15 +1,14 @@
+import { Link } from "react-router-dom";
+
 const ServiceNav = function () {
-  const accountHandler = () => {
-    console.log("Bam roi");
-  };
   return (
     <ul className="service">
       <li>Search</li>
       <li>Help</li>
       <li>
-        <button className="btn btn-nav" onClick={accountHandler}>
+        <Link to="/account" className="btn-custom">
           My Account
-        </button>
+        </Link>
       </li>
     </ul>
   );

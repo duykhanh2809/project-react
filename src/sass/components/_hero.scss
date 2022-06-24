@@ -1,4 +1,9 @@
 .hero {
+  &-section {
+    height: 100vh;
+    z-index: -99;
+  }
+
   &__img {
     position: absolute;
     top: 0;
@@ -15,17 +20,24 @@
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    width: 28vw;
+    width: 27vw;
     font-size: 1.4rem;
     font-weight: 300;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 1.4rem;
-    z-index: -2;
+    z-index: 1;
 
     p:nth-child(1) {
       font-weight: 600;
     }
+
+    .btn-default::after {
+      background-color: var(--color-grey-light-2);
+    }
+  }
+  &__intro {
+    font-weight: 300;
   }
 }

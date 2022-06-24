@@ -1,18 +1,18 @@
-import { Fragment } from "react";
-import Header from "./components/Header/Header";
+import { Routes, Route } from "react-router-dom";
+
+import Layout from "./components/UI/Layout";
 import Hero from "./components/Hero/Hero";
 import Account from "./components/Account/Account";
-import "./App.css";
 
 function App() {
   return (
-    <Fragment>
-      {/* <Header pages="hero" />
-      <main>
-        <Hero />
-      </main> */}
-      <Account />
-    </Fragment>
+    <Layout>
+      {/* <Header pages="hero" />  */}
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/account" element={<Account />} />
+      </Routes>
+    </Layout>
   );
 }
 

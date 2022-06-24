@@ -16,7 +16,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: var(--color-grey-light-1);
+  background-color: var(--color-grey-dark-2);
 }
 
 .btn-create, .btn-login:link, .btn-login:visited {
@@ -205,6 +205,7 @@ body {
           align-items: baseline;
   padding: 3rem 4rem;
   position: relative;
+  color: var(--color-grey-dark-2);
 }
 
 .header__nav {
@@ -236,6 +237,11 @@ body {
   color: var(--color-black);
 }
 
+.hero-section {
+  height: 100vh;
+  z-index: -99;
+}
+
 .hero__img {
   position: absolute;
   top: 0;
@@ -254,7 +260,7 @@ body {
   right: 0;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  width: 28vw;
+  width: 27vw;
   font-size: 1.4rem;
   font-weight: 300;
   display: -webkit-box;
@@ -268,11 +274,19 @@ body {
       -ms-flex-align: start;
           align-items: flex-start;
   gap: 1.4rem;
-  z-index: -2;
+  z-index: 1;
 }
 
 .hero__content p:nth-child(1) {
   font-weight: 600;
+}
+
+.hero__content .btn-default::after {
+  background-color: var(--color-grey-light-2);
+}
+
+.hero__intro {
+  font-weight: 300;
 }
 
 .product {
@@ -348,7 +362,7 @@ body {
 }
 
 .btn-custom:link, .btn-custom:visited {
-  padding-bottom: 1px;
+  padding-bottom: 3px;
 }
 
 .btn-custom::after {
@@ -590,6 +604,50 @@ body {
 }
 
 .account-register .btn-create {
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+.account-login {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (10rem)[3];
+      grid-template-rows: repeat(3, 10rem);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 4rem;
+          column-gap: 4rem;
+  row-gap: 1rem;
+  font-size: 1.4rem;
+  margin-right: 10vw;
+  margin-top: 3vw;
+  margin-bottom: 5vw;
+}
+
+.account-login label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.account-login input {
+  width: 50%;
+  padding: 1.4rem;
+  border: 1px solid var(--color-grey-light-4);
+  font-family: inherit;
+}
+
+.account-login input:focus {
+  outline: 1px solid var(--color-grey-light-2);
+}
+
+.account-login div {
+  grid-column: 1/-1;
+}
+
+.account-login .btn-create {
   -ms-grid-column-align: end;
       justify-self: end;
 }

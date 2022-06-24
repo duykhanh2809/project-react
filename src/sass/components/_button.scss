@@ -55,7 +55,7 @@
     &:link,
     &:visited {
       @extend %link-hover;
-      padding-bottom: 1px;
+      padding-bottom: 3px;
     }
 
     &::after {
