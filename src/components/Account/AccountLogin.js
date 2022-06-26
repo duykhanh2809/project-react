@@ -51,7 +51,7 @@ const AccountLogin = function () {
 
   return (
     <div className="account-details">
-      <h2 className="heading-secondary">Login</h2>
+      <h3 className="heading-tertiary">Login</h3>
       <form className="account-login" onSubmit={submitHandler}>
         <div>
           <label htmlFor="email">Email Address*</label>

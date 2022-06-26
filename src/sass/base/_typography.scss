@@ -6,16 +6,24 @@ body {
 }
 
 .heading-primary {
+}
+
+.heading-secondary {
   font-size: 3rem;
   font-weight: 400;
 }
 
-.heading-secondary {
+.heading-tertiary {
   font-size: 1.4rem;
   font-weight: 700;
 }
 
-.heading-tertiary {
-  // font-size: 3rem;
-  // font-weight: 400;
+.sub-heading {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.text-describe {
+  font-size: 1.4rem;
+  color: var(--color-grey-dark-2);
 }

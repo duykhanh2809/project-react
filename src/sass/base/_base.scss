@@ -15,7 +15,6 @@
   --color-grey-light-1: #777;
   --color-grey-light-2: #929292;
   --color-grey-light-3: #ddd;
-
   --color-grey-light-4: #eaeaea;
 
   --color-white: #fff;
@@ -50,4 +49,16 @@ body {
 ::selection {
   background-color: var(--color-selection);
   color: var(--color-white);
+}
+
+figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+del {
+  color: var(--color-grey-light-2);
+  font-size: 1.3rem;
+  margin-right: 1rem;
 }

@@ -1,4 +1,9 @@
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import CheckContext from "../../store/check-context";
+
 const CheckAccount = function () {
+  const checkCtx = useContext(CheckContext);
   return (
     <div className="check">
       <p className="check__intro">
@@ -6,9 +11,15 @@ const CheckAccount = function () {
         <br /> return or adjust your personal information.
       </p>
       <div className="check__button">
-        <a href="#" className="btn-default">
+        <Link
+          to="/account/signup"
+          className="btn-default"
+          onClick={() => {
+            checkCtx.cancelCheck();
+          }}
+        >
           Create account
-        </a>
+        </Link>
         <a href="#" className="btn-login">
           Login
         </a>

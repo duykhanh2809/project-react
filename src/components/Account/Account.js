@@ -1,13 +1,11 @@
+import { Outlet } from "react-router-dom";
 import AccountSideBar from "./AccountSideBar";
-import AccountRegister from "./AccountRegister";
-import AccountLogin from "./AccountLogin";
 
 const Account = () => {
   return (
     <div className="account">
       <AccountSideBar />
-      <AccountRegister />
-      {/* <AccountLogin /> */}
+      <Outlet />
     </div>
   );
 };

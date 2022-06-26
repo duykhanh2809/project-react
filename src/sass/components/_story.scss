@@ -1,0 +1,32 @@
+.story {
+  &-section {
+    height: 32rem;
+    padding: 3rem 4rem;
+    display: flex;
+    gap: 3rem;
+  }
+
+  &__item {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+
+    div:first-child {
+      align-self: stretch;
+      flex: 0 1 47%;
+    }
+  }
+
+  &__detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}

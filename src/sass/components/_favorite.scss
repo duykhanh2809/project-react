@@ -1,0 +1,39 @@
+.favorite {
+  &-section {
+    padding: 3rem 4rem;
+  }
+
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+
+    div {
+      display: flex;
+      gap: 0.8rem;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border: 1px solid var(--color-grey-light-4);
+    border-radius: 50%;
+    background-color: transparent;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__content {
+    display: flex;
+    gap: 3rem;
+    width: 100%;
+    // CUSTOM
+    overflow-x: scroll;
+  }
+}

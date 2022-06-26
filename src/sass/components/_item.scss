@@ -1,0 +1,20 @@
+.product-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  position: relative;
+  flex: 0 0 calc((100% - 6rem) / 3);
+
+  &__img {
+    height: 80%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  span {
+    position: absolute;
+    top: 3%;
+    left: 4%;
+    color: var(--color-grey-light-1);
+  }
+}

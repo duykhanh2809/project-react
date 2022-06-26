@@ -1,14 +1,21 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import CheckContext from "../../store/check-context";
 
-const ServiceNav = function () {
+const ServiceNav = function (props) {
+  const checkCtx = useContext(CheckContext);
+
+  const showCheckAccountHandler = () => {
+    checkCtx.setChecking();
+  };
+
   return (
     <ul className="service">
       <li>Search</li>
       <li>Help</li>
       <li>
-        <Link to="/account" className="btn-custom">
+        <button className="btn btn-nav" onClick={showCheckAccountHandler}>
           My Account
-        </Link>
+        </button>
       </li>
     </ul>
   );

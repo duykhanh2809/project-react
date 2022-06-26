@@ -84,7 +84,7 @@ const AccountRegister = function () {
 
   return (
     <div className="account-details">
-      <h2 className="heading-secondary">Create Account</h2>
+      <h3 className="heading-tertiary">Create Account</h3>
       <form className="account-register" onSubmit={submitHandler}>
         <div>
           <label htmlFor="firstname">First name*</label>

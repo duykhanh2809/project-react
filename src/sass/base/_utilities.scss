@@ -24,21 +24,14 @@
 
 /***********************/
 
-.u-margin-bottom-small {
+.mg-bt-small {
+  margin-bottom: 1rem;
+}
+
+.mg-bt-medium {
   margin-bottom: 2rem;
 }
 
-.u-margin-bottom-big {
-  margin-bottom: 8rem;
-
-  @include respond(tab-port) {
-    margin-bottom: 5rem;
-  }
-}
-.u-margin-bottom-huge {
-  margin-bottom: 12rem;
-}
-
-.u-margin-top-huge {
-  margin-top: 10rem;
+.mg-bt-large {
+  margin-bottom: 4rem;
 }
