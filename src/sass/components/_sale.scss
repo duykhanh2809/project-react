@@ -1,0 +1,10 @@
+.pages-sale {
+  padding: 3rem 4rem;
+  text-align: center;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    column-gap: 3rem;
+  }
+}

@@ -1,6 +1,9 @@
 const ProductItem = (props) => {
+  const productClasses = props.hidden
+    ? "product-item product-hidden"
+    : "product-item";
   return (
-    <figure className="product-item">
+    <figure className={productClasses}>
       <span className="text-describe">-30% - {`Item --- ${props.id}`}</span>
       <img
         src="https://cdn.shopify.com/s/files/1/0505/9044/9849/products/ETQ_Model_072Angel3_640x.jpg?v=1644524185"

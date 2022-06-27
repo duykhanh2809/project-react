@@ -1,11 +1,20 @@
 import ProductItem from "../Product/ProductItem";
 import { CaretRight, CaretLeft } from "phosphor-react";
-
-const order = [0, 1, 2, 3, 4, 5, 6];
+import { useState } from "react";
 
 const FavoriteProduct = () => {
-  const prevItemHandler = () => {};
-  const nextItemHandler = () => {};
+  // dummy data
+  const [data, setData] = useState([0, 1, 2, 3, 4, 5, 6]);
+  const prevItemHandler = () => {
+    const itemChange = [data.at(-1)];
+    const dataNew = data.slice(0, -1);
+    setData(itemChange.concat(dataNew));
+  };
+  const nextItemHandler = () => {
+    const itemChange = [data.at(0)];
+    const dataNew = data.slice(1);
+    setData(dataNew.concat(itemChange));
+  };
 
   return (
     <section className="favorite-section">
@@ -20,9 +29,10 @@ const FavoriteProduct = () => {
           </button>
         </div>
       </div>
-      <div className="favorite__content" id="1">
-        {order.map((ele, ind) => {
-          return <ProductItem key={ind} id={ind} />;
+      <div className="favorite__content">
+        {data.map((ele, ind) => {
+          if (ind < 3) return <ProductItem id={ele} key={ind} hidden={false} />;
+          return <ProductItem id={ele} key={ind} hidden={true} />;
         })}
       </div>
     </section>
