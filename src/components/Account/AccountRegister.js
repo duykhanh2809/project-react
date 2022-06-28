@@ -72,8 +72,6 @@ const AccountRegister = function () {
 
       const dataUpdate = await updateProfile.json();
 
-      console.log(dataUpdate);
-
       return dataUpdate;
     };
 

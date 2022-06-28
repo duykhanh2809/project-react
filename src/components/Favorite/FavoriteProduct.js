@@ -1,20 +1,43 @@
 import ProductItem from "../Product/ProductItem";
 import { CaretRight, CaretLeft } from "phosphor-react";
-import { useState } from "react";
+import useFetch from "../../hooks/use-fetch";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const FavoriteProduct = () => {
-  // dummy data
-  const [data, setData] = useState([0, 1, 2, 3, 4, 5, 6]);
+  const [dataForRender, setDataForRender] = useState([]);
+
   const prevItemHandler = () => {
-    const itemChange = [data.at(-1)];
-    const dataNew = data.slice(0, -1);
-    setData(itemChange.concat(dataNew));
+    const itemChange = [dataForRender.at(-1)];
+    const dataNew = dataForRender.slice(0, -1);
+    setDataForRender(itemChange.concat(dataNew));
   };
   const nextItemHandler = () => {
-    const itemChange = [data.at(0)];
-    const dataNew = data.slice(1);
-    setData(dataNew.concat(itemChange));
+    const itemChange = [dataForRender.at(0)];
+    const dataNew = dataForRender.slice(1);
+    setDataForRender(dataNew.concat(itemChange));
   };
+
+  // Data render
+
+  useEffect(() => {
+    const fetchShoesSale = async function () {
+      const response = await fetch(
+        "https://project-react-cf626-default-rtdb.firebaseio.com/sales.json"
+      );
+      if (!response.ok) {
+        throw new Error("Something went wrong!");
+      }
+      const data = await response.json();
+      const dataValue = Object.values(data);
+      setDataForRender(dataValue.slice(2));
+      return data;
+    };
+
+    fetchShoesSale().catch((error) => {
+      console.log(error.message);
+    });
+  }, []);
 
   return (
     <section className="favorite-section">
@@ -30,9 +53,32 @@ const FavoriteProduct = () => {
         </div>
       </div>
       <div className="favorite__content">
-        {data.map((ele, ind) => {
-          if (ind < 3) return <ProductItem id={ele} key={ind} hidden={false} />;
-          return <ProductItem id={ele} key={ind} hidden={true} />;
+        {dataForRender.map((ele, ind) => {
+          if (ind < 3)
+            return (
+              <ProductItem
+                key={ind}
+                hidden={false}
+                isSale={true}
+                name={ele.name}
+                price={ele.price}
+                priceSale={ele.priceSale}
+                imageUrl={ele.image}
+              />
+            );
+          return;
+          // return (
+          //   <ProductItem
+          //     key={ind}
+          //     hidden={true}
+          //     isSale={true}
+          //     name={ele.name}
+          //     price={ele.price}
+          //     priceSale={ele.priceSale}
+          //     imageUrl={ele.image.first}
+          //     allImageLink={ele.image}
+          //   />
+          // );
         })}
       </div>
     </section>

@@ -7,6 +7,7 @@ import AccountLogin from "./components/Account/AccountLogin";
 import Sale from "./components/Sale/Sale";
 import HomePage from "./components/Pages/HomePage";
 import AllFootwear from "./components/AllFootwear/AllFootwear";
+import ProductDetails from "./components/Product/ProductDetails";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         </Route>
         <Route path="/sale" element={<Sale />} />
         <Route path="/shoes" element={<AllFootwear />} />
+        <Route path="/products" element={<AllFootwear />} />
+        <Route path="/products/:productId" element={<ProductDetails />} />
       </Routes>
     </Layout>
   );

@@ -1,20 +1,32 @@
+import { useNavigate } from "react-router-dom";
+
 const ProductItem = (props) => {
+  const navigate = useNavigate();
   const productClasses = props.hidden
     ? "product-item product-hidden"
     : "product-item";
+
+  const viewItemHandler = () => {
+    const productsId = props.name.toLowerCase().replaceAll(" ", "-");
+    navigate(`/products/${productsId}`, { replace: true });
+  };
+
   return (
-    <figure className={productClasses}>
-      <span className="text-describe">-30% - {`Item --- ${props.id}`}</span>
+    <figure className={productClasses} onClick={viewItemHandler}>
+      {props.isSale && <span className="text-describe">-30%</span>}
       <img
-        src="https://cdn.shopify.com/s/files/1/0505/9044/9849/products/ETQ_Model_072Angel3_640x.jpg?v=1644524185"
+        src={props.imageUrl.first}
         alt="Shoe 1"
         className="product-item__img"
       />
       <figcaption>
-        <p className="sub-heading">LT 02 Light Sand</p>
-        <p className="text-describe">
-          <del>€209</del>€146,30
-        </p>
+        <p className="sub-heading">{props.name}</p>
+        {props.isSale && (
+          <p className="text-describe">
+            <del>€{props.price}</del>€{props.priceSale}
+          </p>
+        )}
+        {!props.isSale && <p className="text-describe">€{props.price}</p>}
       </figcaption>
     </figure>
   );

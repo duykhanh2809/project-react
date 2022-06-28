@@ -729,6 +729,7 @@ body {
 
 .favorite-section {
   padding: 3rem 4rem;
+  overflow: hidden;
 }
 
 .favorite__heading {
@@ -792,6 +793,7 @@ body {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc((100% - 6rem) / 3);
           flex: 0 0 calc((100% - 6rem) / 3);
+  text-align: left;
 }
 
 .product-item__img {
@@ -809,7 +811,8 @@ body {
 }
 
 .product-hidden {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .pages-sale {
@@ -820,10 +823,11 @@ body {
 .pages-sale__grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   -webkit-column-gap: 3rem;
           column-gap: 3rem;
+  text-align: left;
 }
 
 .pages-all {
@@ -834,6 +838,15 @@ body {
 .pages-all__grid {
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  -webkit-column-gap: 3rem;
+          column-gap: 3rem;
+}
+
+.pages-all__grid-custom {
+  display: -ms-grid;
+  display: grid;
   -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   -webkit-column-gap: 3rem;
@@ -842,5 +855,9 @@ body {
 
 .pages-all > .sub-heading {
   text-align: left;
+}
+
+.product-details {
+  padding: 3rem 4rem;
 }
 /*# sourceMappingURL=index.css.map */
