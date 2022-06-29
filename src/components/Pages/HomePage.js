@@ -9,7 +9,7 @@ const HomePage = () => {
     <Fragment>
       <Hero />
       <Story />
-      <FavoriteProduct />
+      <FavoriteProduct anotherSite={false} />
       <About />
     </Fragment>
   );

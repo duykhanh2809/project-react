@@ -4,7 +4,7 @@ import useFetch from "../../hooks/use-fetch";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const FavoriteProduct = () => {
+const FavoriteProduct = (props) => {
   const [dataForRender, setDataForRender] = useState([]);
 
   const prevItemHandler = () => {
@@ -42,7 +42,12 @@ const FavoriteProduct = () => {
   return (
     <section className="favorite-section">
       <div className="favorite__heading">
-        <h2 className="heading-secondary">Our favorite models on sale</h2>
+        {!props.anotherSite && (
+          <h2 className="heading-secondary">Our favorite models on sale</h2>
+        )}
+        {props.anotherSite && (
+          <h2 className="heading-secondary">You might also like</h2>
+        )}
         <div>
           <button className="favorite__btn" onClick={prevItemHandler}>
             <CaretLeft size={16} color="black" weight="bold" />
@@ -67,18 +72,6 @@ const FavoriteProduct = () => {
               />
             );
           return;
-          // return (
-          //   <ProductItem
-          //     key={ind}
-          //     hidden={true}
-          //     isSale={true}
-          //     name={ele.name}
-          //     price={ele.price}
-          //     priceSale={ele.priceSale}
-          //     imageUrl={ele.image.first}
-          //     allImageLink={ele.image}
-          //   />
-          // );
         })}
       </div>
     </section>

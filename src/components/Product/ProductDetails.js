@@ -1,46 +1,30 @@
-import { useState, useEffect, Fragment } from "react";
-import { useParams } from "react-router-dom";
+import { Fragment } from "react";
+import FavoriteProduct from "../Favorite/FavoriteProduct";
+import ProductBuy from "./ProductBuy";
+import ProductInfo from "./ProductInfo";
 
-const ProductDetails = () => {
-  const [dataItem, setDataItem] = useState();
-  const { productId } = useParams();
-
-  useEffect(() => {
-    const fetchShoesSale = async function () {
-      const response = await fetch(
-        "https://project-react-cf626-default-rtdb.firebaseio.com/all.json"
-      );
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
-      const data = await response.json();
-      const dataValue = Object.values(data);
-
-      const items = dataValue.filter((ele) => {
-        const id = ele.name.toLowerCase().replaceAll(" ", "-");
-        return id === productId;
-      });
-
-      setDataItem(...items);
-      return data;
-    };
-
-    fetchShoesSale().catch((error) => {
-      console.log(error.message);
-    });
-  }, []);
-
+const ProductDetails = (props) => {
+  const imageRender = Object.values(props.productData.image);
   return (
-    <div className="product-details">
-      {!dataItem && <p>Loading</p>}
-      {dataItem && (
-        <Fragment>
-          <p>{dataItem.name}</p>
-          <p>{dataItem.priceSale}</p>
-          <p>{dataItem.price}</p>
-        </Fragment>
-      )}
-    </div>
+    <Fragment>
+      <div className="product-inner">
+        <div className="product-images">
+          {imageRender.map((ele, ind) => {
+            return (
+              <img
+                src={ele}
+                alt="Image details"
+                key={ind}
+                className="product-img"
+              />
+            );
+          })}
+        </div>
+        <ProductBuy productData={props.productData} />
+      </div>
+      <ProductInfo />
+      <FavoriteProduct anotherSite={true} />
+    </Fragment>
   );
 };
 

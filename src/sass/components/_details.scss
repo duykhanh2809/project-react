@@ -1,5 +1,71 @@
 .product {
   &-details {
     padding: 3rem 4rem;
+    & .favorite-section {
+      padding: 0;
+    }
+  }
+  &-inner {
+    display: flex;
+    gap: 5rem;
+  }
+
+  &-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+    gap: 0.8rem;
+    // custom
+    flex: 0 0 calc(200% / 3);
+  }
+
+  &-buy {
+    color: var(--color-black);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__offer {
+      list-style: url(../../assets/img/svg/iconmonstr-check-mark-17.svg);
+    }
+  }
+
+  &-info {
+    display: flex;
+    gap: 10rem;
+    font-size: 1.4rem;
+    color: var(--color-grey-dark-2);
+  }
+
+  &-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__description {
+    line-height: 1.6;
+  }
+
+  &__description-list {
+    margin-left: 1.8rem;
+    list-style: square;
+    line-height: 1.75;
+  }
+
+  &__information {
+    line-height: 1.6;
+    span {
+      margin-right: 0.55rem;
+    }
+
+    & .btn-default {
+      line-height: 1.4;
+      margin-bottom: -0.65rem;
+      // margin-left: 0.5rem;
+    }
+
+    & div:not(:last-child) {
+      margin-bottom: 2rem;
+    }
   }
 }

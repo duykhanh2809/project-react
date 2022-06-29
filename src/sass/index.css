@@ -120,6 +120,11 @@ body {
   color: var(--color-black);
 }
 
+.heading-primary {
+  font-size: 3.1rem;
+  font-weight: 400;
+}
+
 .heading-secondary {
   font-size: 3rem;
   font-weight: 400;
@@ -859,5 +864,88 @@ body {
 
 .product-details {
   padding: 3rem 4rem;
+}
+
+.product-details .favorite-section {
+  padding: 0;
+}
+
+.product-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5rem;
+}
+
+.product-images {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(35rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+  gap: 0.8rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(200% / 3);
+          flex: 0 0 calc(200% / 3);
+}
+
+.product-buy {
+  color: var(--color-black);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.product-buy__offer {
+  list-style: url(../../assets/img/svg/iconmonstr-check-mark-17.svg);
+}
+
+.product-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10rem;
+  font-size: 1.4rem;
+  color: var(--color-grey-dark-2);
+}
+
+.product-img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.product__description {
+  line-height: 1.6;
+}
+
+.product__description-list {
+  margin-left: 1.8rem;
+  list-style: square;
+  line-height: 1.75;
+}
+
+.product__information {
+  line-height: 1.6;
+}
+
+.product__information span {
+  margin-right: 0.55rem;
+}
+
+.product__information .btn-default {
+  line-height: 1.4;
+  margin-bottom: -0.65rem;
+}
+
+.product__information div:not(:last-child) {
+  margin-bottom: 2rem;
 }
 /*# sourceMappingURL=index.css.map */

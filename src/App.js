@@ -7,7 +7,7 @@ import AccountLogin from "./components/Account/AccountLogin";
 import Sale from "./components/Sale/Sale";
 import HomePage from "./components/Pages/HomePage";
 import AllFootwear from "./components/AllFootwear/AllFootwear";
-import ProductDetails from "./components/Product/ProductDetails";
+import ProductFetch from "./components/Product/ProductFetch";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="/sale" element={<Sale />} />
         <Route path="/shoes" element={<AllFootwear />} />
         <Route path="/products" element={<AllFootwear />} />
-        <Route path="/products/:productId" element={<ProductDetails />} />
+        <Route path="/products/:productId" element={<ProductFetch />} />
       </Routes>
     </Layout>
   );

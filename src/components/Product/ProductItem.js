@@ -9,6 +9,11 @@ const ProductItem = (props) => {
   const viewItemHandler = () => {
     const productsId = props.name.toLowerCase().replaceAll(" ", "-");
     navigate(`/products/${productsId}`, { replace: true });
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
