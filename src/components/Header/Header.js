@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import ProductNav from "./ProductNav";
 import ServiceNav from "./ServiceNav";
-import Cart from "../Cart/Cart";
 import CheckAccount from "../Account/CheckAccount";
 import CheckContext from "../../store/check-context";
 import { ModalMain } from "../UI/Modal";

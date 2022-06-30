@@ -3,9 +3,11 @@ import { CaretRight, CaretLeft } from "phosphor-react";
 import useFetch from "../../hooks/use-fetch";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const FavoriteProduct = (props) => {
   const [dataForRender, setDataForRender] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const prevItemHandler = () => {
     const itemChange = [dataForRender.at(-1)];
@@ -19,9 +21,9 @@ const FavoriteProduct = (props) => {
   };
 
   // Data render
-
   useEffect(() => {
     const fetchShoesSale = async function () {
+      setIsLoading(true);
       const response = await fetch(
         "https://project-react-cf626-default-rtdb.firebaseio.com/sales.json"
       );
@@ -31,6 +33,7 @@ const FavoriteProduct = (props) => {
       const data = await response.json();
       const dataValue = Object.values(data);
       setDataForRender(dataValue.slice(2));
+      setIsLoading(false);
       return data;
     };
 
@@ -57,6 +60,7 @@ const FavoriteProduct = (props) => {
           </button>
         </div>
       </div>
+      {isLoading && <LoadingSpinner />}
       <div className="favorite__content">
         {dataForRender.map((ele, ind) => {
           if (ind < 3)

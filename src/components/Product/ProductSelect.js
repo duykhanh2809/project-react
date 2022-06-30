@@ -3,12 +3,9 @@ import { useState } from "react";
 const ProductSelect = function () {
   const [size, setSize] = useState();
   return (
-    <form>
-      <label htmlFor="color" className="text-describe">
-        Select Size
-      </label>
+    <form className="product-select">
       <select id="size" value={size} onChange={(e) => setSize(e.target.value)}>
-        <option value="hide">Test</option>
+        <option value="">--Size--</option>
         <option value="EU 39 | US 6 | UK 5">EU 39 | US 6 | UK 5</option>
         <option value="EU 40 | US 7 | UK 6">EU 40 | US 7 | UK 6</option>
         <option value="EU 41 | US 8 | UK 7">EU 41 | US 8 | UK 7</option>
