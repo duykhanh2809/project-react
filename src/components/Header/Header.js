@@ -3,8 +3,10 @@ import { useContext } from "react";
 import ProductNav from "./ProductNav";
 import ServiceNav from "./ServiceNav";
 import CheckAccount from "../Account/CheckAccount";
-import CheckContext from "../../store/check-context";
+import CheckContext from "../../store/ContextAPI/check-context";
 import { ModalMain } from "../UI/Modal";
+import Bag from "../Cart/Cart";
+import BagDropDown from "../Cart/CartDropDown";
 
 const Header = (props) => {
   const accountCtx = useContext(CheckContext);
@@ -22,9 +24,10 @@ const Header = (props) => {
         <ServiceNav />
       </nav>
       {/* <Cart /> */}
-      <p>Cart</p>
+      <Bag />
       {accountCtx.isChecking && <CheckAccount />}
       {accountCtx.isChecking && <ModalMain />}
+      <BagDropDown />
     </header>
   );
 };

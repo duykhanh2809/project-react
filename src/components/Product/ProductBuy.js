@@ -21,7 +21,7 @@ const ProductBuy = function (props) {
       <a href="#" className="btn-default mg-bt-medium">
         More information
       </a>
-      <ProductSelect />
+      <ProductSelect productData={props.productData} />
       <a href="#" className="btn-default mg-bt-medium product-buy__guide">
         Size guide
       </a>

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import CheckContext from "../../store/check-context";
+import CheckContext from "../../store/ContextAPI/check-context";
 
 const ServiceNav = function (props) {
   const checkCtx = useContext(CheckContext);

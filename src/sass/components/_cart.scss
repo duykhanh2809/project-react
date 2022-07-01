@@ -1,0 +1,12 @@
+.cart {
+  &-drop {
+    position: absolute;
+    top: 10%;
+    right: 0.8%;
+    width: 35%;
+    height: 29rem;
+    background-color: yellowgreen;
+    z-index: 2;
+    padding: 2.8rem;
+  }
+}

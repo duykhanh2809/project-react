@@ -1,6 +1,6 @@
 import { Fragment, useContext } from "react";
 import ReactDOM from "react-dom";
-import CheckContext from "../../store/check-context";
+import CheckContext from "../../store/ContextAPI/check-context";
 
 const Modal = function () {
   const checkCtx = useContext(CheckContext);

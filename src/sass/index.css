@@ -262,6 +262,35 @@ body {
   color: var(--color-black);
 }
 
+.header__cart {
+  position: relative;
+  color: var(--color-white);
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.header__cart span {
+  position: relative;
+  z-index: 5;
+}
+
+.header__cart::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--color-black);
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
 .hero-section {
   height: 100vh;
   z-index: -99;
@@ -353,6 +382,17 @@ body {
 
 .btn-nav {
   background-color: transparent;
+}
+
+.btn-buy:disabled {
+  cursor: initial;
+  color: var(--color-grey-light-1);
+}
+
+.btn-buy__done {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-grey-light-4);
+  color: var(--color-grey-dark-1);
 }
 
 .btn-form {
@@ -1086,5 +1126,16 @@ body {
   transition: all 2s;
   -webkit-animation: spinner 1s linear infinite;
           animation: spinner 1s linear infinite;
+}
+
+.cart-drop {
+  position: absolute;
+  top: 10%;
+  right: 0.8%;
+  width: 35%;
+  height: 29rem;
+  background-color: yellowgreen;
+  z-index: 2;
+  padding: 2.8rem;
 }
 /*# sourceMappingURL=index.css.map */

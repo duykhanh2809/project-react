@@ -4,16 +4,20 @@ import "./sass/index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { CheckContextProvider } from "./store/check-context";
+import { CheckContextProvider } from "./store/ContextAPI/check-context";
+import { Provider } from "react-redux";
+import store from "./store/redux/index";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <CheckContextProvider>
-        <App />
-      </CheckContextProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <CheckContextProvider>
+          <App />
+        </CheckContextProvider>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 
