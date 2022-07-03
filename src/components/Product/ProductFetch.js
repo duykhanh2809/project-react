@@ -1,39 +1,32 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import LoadingSpinner from "../UI/LoadingSpinner";
 import ProductDetails from "./ProductDetails";
+import useFetch from "../../hooks/use-fetch";
 
 const ProductFetch = () => {
   const [dataItem, setDataItem] = useState();
   const { productId } = useParams();
+  const { isLoading, fetchShoesSale } = useFetch();
 
   useEffect(() => {
-    const fetchShoesSale = async function () {
-      const response = await fetch(
-        "https://project-react-cf626-default-rtdb.firebaseio.com/all.json"
-      );
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
-      const data = await response.json();
-      const dataValue = Object.values(data);
-
+    const matchItem = function (dataValue) {
       const items = dataValue.filter((ele) => {
         const id = ele.name.toLowerCase().replaceAll(" ", "-");
         return id === productId;
       });
-
       setDataItem(...items);
-      return data;
     };
 
-    fetchShoesSale().catch((error) => {
-      console.log(error.message);
-    });
+    fetchShoesSale(
+      "https://project-react-cf626-default-rtdb.firebaseio.com/all.json",
+      matchItem
+    );
   }, [productId]);
 
   return (
     <section className="product-details">
-      {!dataItem && <p>Loading</p>}
+      {isLoading && <LoadingSpinner />}
       {dataItem && <ProductDetails productData={dataItem} />}
     </section>
   );

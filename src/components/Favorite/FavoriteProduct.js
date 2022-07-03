@@ -1,46 +1,28 @@
 import ProductItem from "../Product/ProductItem";
 import { CaretRight, CaretLeft } from "phosphor-react";
-import useFetch from "../../hooks/use-fetch";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import LoadingSpinner from "../UI/LoadingSpinner";
+import useFetch from "../../hooks/use-fetch";
 
 const FavoriteProduct = (props) => {
-  const [dataForRender, setDataForRender] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const { isLoading, dataRender, fetchShoesSale } = useFetch();
+  // custom
+  const [currentSlide, setCurrentSlide] = useState(2);
 
   const prevItemHandler = () => {
-    const itemChange = [dataForRender.at(-1)];
-    const dataNew = dataForRender.slice(0, -1);
-    setDataForRender(itemChange.concat(dataNew));
+    setCurrentSlide(
+      currentSlide !== 0 ? currentSlide - 1 : dataRender.length - 1
+    );
   };
   const nextItemHandler = () => {
-    const itemChange = [dataForRender.at(0)];
-    const dataNew = dataForRender.slice(1);
-    setDataForRender(dataNew.concat(itemChange));
+    setCurrentSlide(currentSlide === dataRender.length ? 0 : currentSlide + 1);
   };
 
-  // Data render
   useEffect(() => {
-    const fetchShoesSale = async function () {
-      setIsLoading(true);
-      const response = await fetch(
-        "https://project-react-cf626-default-rtdb.firebaseio.com/sales.json"
-      );
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
-      const data = await response.json();
-      const dataValue = Object.values(data);
-      setDataForRender(dataValue.slice(2));
-      setIsLoading(false);
-      return data;
-    };
-
-    fetchShoesSale().catch((error) => {
-      console.log(error.message);
-    });
-  }, []);
+    fetchShoesSale(
+      "https://project-react-cf626-default-rtdb.firebaseio.com/sales.json"
+    );
+  }, [fetchShoesSale]);
 
   return (
     <section className="favorite-section">
@@ -62,19 +44,17 @@ const FavoriteProduct = (props) => {
       </div>
       {isLoading && <LoadingSpinner />}
       <div className="favorite__content">
-        {dataForRender.map((ele, ind) => {
-          if (ind < 3)
-            return (
-              <ProductItem
-                key={ind}
-                hidden={false}
-                isSale={true}
-                name={ele.name}
-                price={ele.price}
-                priceSale={ele.priceSale}
-                imageUrl={ele.image}
-              />
-            );
+        {dataRender.map((ele, ind) => {
+          return (
+            <ProductItem
+              key={ind}
+              isSale={true}
+              name={ele.name}
+              price={ele.price}
+              priceSale={ele.priceSale}
+              imageUrl={ele.image}
+            />
+          );
           return;
         })}
       </div>

@@ -8,20 +8,40 @@ const CheckContext = React.createContext({
 export default CheckContext;
 
 export const CheckContextProvider = (props) => {
+  const [isAccountChecking, setIsAccountChecking] = useState(false);
+  const [isCartChecking, setIsCartChecking] = useState(false);
   const [isChecking, setIsChecking] = useState(false);
+  const [isChangingProduct, setIsChangingProduct] = useState(false);
 
   const cancelCheck = () => {
+    setIsAccountChecking(false);
+    setIsCartChecking(false);
     setIsChecking(false);
   };
 
-  const setChecking = () => {
+  const setAccountChecking = () => {
+    setIsAccountChecking(true);
     setIsChecking(true);
+  };
+
+  const setCartChecking = () => {
+    setIsCartChecking(true);
+    setIsChecking(true);
+  };
+
+  const setChangingProduct = (para) => {
+    setIsChangingProduct(para);
   };
 
   const initialValue = {
     isChecking,
+    isAccountChecking,
+    isCartChecking,
+    isChangingProduct,
+    setAccountChecking,
+    setCartChecking,
+    setChangingProduct,
     cancelCheck,
-    setChecking,
   };
 
   return (

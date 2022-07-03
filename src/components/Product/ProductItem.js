@@ -1,14 +1,15 @@
 import { useNavigate } from "react-router-dom";
+import CheckContext from "../../store/ContextAPI/check-context";
+import { useContext } from "react";
 
 const ProductItem = (props) => {
   const navigate = useNavigate();
-  const productClasses = props.hidden
-    ? "product-item product-hidden"
-    : "product-item";
+  const productCtx = useContext(CheckContext);
 
   const viewItemHandler = () => {
     const productsId = props.name.toLowerCase().replaceAll(" ", "-");
     navigate(`/products/${productsId}`, { replace: true });
+    productCtx.setChangingProduct(true);
     window.scrollTo({
       top: 0,
       left: 0,
@@ -17,7 +18,7 @@ const ProductItem = (props) => {
   };
 
   return (
-    <figure className={productClasses} onClick={viewItemHandler}>
+    <figure className="product-item" onClick={viewItemHandler}>
       {props.isSale && <span className="text-describe">-30%</span>}
       <img
         src={props.imageUrl.first}

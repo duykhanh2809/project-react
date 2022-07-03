@@ -19,11 +19,6 @@
     letter-spacing: 1rem;
     font-weight: 700;
   }
-  p {
-    font-size: 1.4rem;
-    font-weight: 400;
-    z-index: 3;
-  }
 
   &-modify &__logo {
     color: var(--color-black);
@@ -47,7 +42,7 @@
     content: "";
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 53%;
     width: 2.5rem;
     height: 2.5rem;
     background-color: var(--color-black);

@@ -1,34 +1,23 @@
 import ProductItem from "../Product/ProductItem";
 import { useState, useEffect } from "react";
+import useFetch from "../../hooks/use-fetch";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const Sale = function () {
-  const [dataRender, setDataRender] = useState([]);
+  const { isLoading, dataRender, fetchShoesSale } = useFetch();
 
-  // Data render
   useEffect(() => {
-    const fetchShoesSale = async function () {
-      const response = await fetch(
-        "https://project-react-cf626-default-rtdb.firebaseio.com/sales.json"
-      );
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
-      const data = await response.json();
-      const dataValue = Object.values(data);
-      setDataRender(dataValue);
-      return data;
-    };
-
-    fetchShoesSale().catch((error) => {
-      console.log(error.message);
-    });
-  }, []);
+    fetchShoesSale(
+      "https://project-react-cf626-default-rtdb.firebaseio.com/sales.json"
+    );
+  }, [fetchShoesSale]);
 
   return (
     <div className="pages-sale">
       <p className="sub-heading mg-bt-medium ">We're live.</p>
       <h2 className="heading-secondary mg-bt-huge">S/S 22 Sale. 30% Off.</h2>
       <div className="pages-sale__grid">
+        {isLoading && <LoadingSpinner />}
         {dataRender.map((ele, ind) => {
           return (
             <ProductItem

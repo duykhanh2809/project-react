@@ -1,15 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../store/redux/cart-actions";
+import CheckContext from "../../store/ContextAPI/check-context";
 
 const ProductSelect = function (props) {
   const [cart, setCart] = useState([]);
   const [size, setSize] = useState();
   const [isClicked, setIsClicked] = useState(false);
   const dispatch = useDispatch();
+  const productCtx = useContext(CheckContext);
+
+  const showButton = isClicked && !productCtx.isChangingProduct;
 
   const selectSizeHandler = (event) => {
     event.preventDefault();
+
+    if (productCtx.isChangingProduct) {
+      productCtx.setChangingProduct(false);
+    }
     setIsClicked(true);
     setCart({ ...props.productData, size });
   };
@@ -37,7 +45,7 @@ const ProductSelect = function (props) {
         <option value="EU 45 | US 12| UK 11">EU 45 | US 12| UK 11</option>
         <option value="EU 46 | US 13| UK 12">EU 46 | US 13| UK 12</option>
       </select>
-      {!isClicked && (
+      {/* {!isClicked && (
         <button
           className="btn btn-create btn-buy"
           disabled={!size}
@@ -48,6 +56,21 @@ const ProductSelect = function (props) {
         </button>
       )}
       {isClicked && (
+        <button className="btn btn-create btn-buy__done" disabled={true}>
+          Added to bag!
+        </button>
+      )} */}
+      {!showButton && (
+        <button
+          className="btn btn-create btn-buy"
+          disabled={!size}
+          type="submit"
+          onClick={selectSizeHandler}
+        >
+          Add to bag
+        </button>
+      )}
+      {showButton && (
         <button className="btn btn-create btn-buy__done" disabled={true}>
           Added to bag!
         </button>

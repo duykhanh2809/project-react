@@ -9,6 +9,22 @@
     font-weight: 600;
   }
 
+  &-remove {
+    background-color: transparent;
+    font-size: 1.2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  &-remove::after {
+    @extend %link-hover-pseudo;
+    transform: translateX(0);
+    transition: all 0.3s;
+  }
+
+  &:hover::after {
+    transform: translateX(100%);
+  }
+
   &-nav {
     background-color: transparent;
   }

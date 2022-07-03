@@ -18,9 +18,8 @@
     left: 4%;
     color: var(--color-grey-light-1);
   }
-}
 
-.product-hidden {
-  visibility: hidden;
-  opacity: 0;
+  &:hover {
+    cursor: pointer;
+  }
 }

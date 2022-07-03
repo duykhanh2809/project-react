@@ -5,7 +5,8 @@ const ServiceNav = function (props) {
   const checkCtx = useContext(CheckContext);
 
   const showCheckAccountHandler = () => {
-    checkCtx.setChecking();
+    checkCtx.cancelCheck();
+    checkCtx.setAccountChecking();
   };
 
   return (
