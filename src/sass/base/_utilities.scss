@@ -22,6 +22,13 @@
   line-height: 1;
 }
 
+.error-boundary {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: rgb(228, 37, 37);
+}
+
 /***********************/
 
 .mg-bt-small {
@@ -39,3 +46,22 @@
 .mg-bt-huge {
   margin-bottom: 10rem;
 }
+
+// TEST
+.slick-track {
+  display: flex !important;
+  gap: 5rem;
+}
+
+.slick-slide {
+  margin-left: -3rem;
+}
+
+.slick-slider {
+  margin-bottom: 8rem;
+}
+
+// .slick-active {
+//   margin-left: -1rem;
+//   margin-right: 1.8rem;
+// }

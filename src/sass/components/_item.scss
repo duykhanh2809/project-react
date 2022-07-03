@@ -1,15 +1,33 @@
 .product-item {
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: 1.5rem;
   position: relative;
   flex: 0 0 calc((100% - 6rem) / 3);
   text-align: left;
 
+  // custom
+  position: relative;
+
   &__img {
-    height: 80%;
+    max-height: 80%;
     width: 100%;
     object-fit: cover;
+  }
+
+  &__img--hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 0.2s;
+    transition: all 0.2s;
+  }
+
+  &:hover &__img--hover {
+    opacity: 1;
+    visibility: visible;
   }
 
   span {

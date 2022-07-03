@@ -5,7 +5,14 @@ const FooterForm = () => {
         Join our <br /> newsletter.
       </label>
       <input type="email" id="emailFooter" />
-      <button className="btn btn-form">Submit</button>
+      <button
+        className="btn btn-form"
+        onClick={(event) => {
+          event.preventDefault();
+        }}
+      >
+        Submit
+      </button>
     </form>
   );
 };

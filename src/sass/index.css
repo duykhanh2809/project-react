@@ -8,7 +8,7 @@
   display: inline-block;
 }
 
-.btn-remove::after, .btn-form::after, .btn-default::after, .btn-custom::after {
+.btn-remove::after, .btn-nav::after, .btn-form::after, .btn-default::after, .btn-custom::after {
   content: "";
   display: inline-block;
   position: absolute;
@@ -135,54 +135,6 @@ del {
   }
 }
 
-@-webkit-keyframes itemEnter {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@keyframes itemEnter {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@-webkit-keyframes blurFast {
-  0% {
-    -webkit-filter: blur(2px);
-            filter: blur(2px);
-  }
-  100% {
-    -webkit-filter: blur(0);
-            filter: blur(0);
-  }
-}
-
-@keyframes blurFast {
-  0% {
-    -webkit-filter: blur(2px);
-            filter: blur(2px);
-  }
-  100% {
-    -webkit-filter: blur(0);
-            filter: blur(0);
-  }
-}
-
 body {
   font-family: "Noto Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -247,6 +199,13 @@ body {
   line-height: 1;
 }
 
+.error-boundary {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #e42525;
+}
+
 /***********************/
 .mg-bt-small {
   margin-bottom: 1rem;
@@ -262,6 +221,21 @@ body {
 
 .mg-bt-huge {
   margin-bottom: 10rem;
+}
+
+.slick-track {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  gap: 5rem;
+}
+
+.slick-slide {
+  margin-left: -3rem;
+}
+
+.slick-slider {
+  margin-bottom: 8rem;
 }
 
 .header {
@@ -290,18 +264,33 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
 }
 
 .header__logo {
   text-decoration: none;
-  color: #fff;
+  color: var(--color-black);
   font-size: 2.4rem;
   letter-spacing: 1rem;
   font-weight: 700;
 }
 
 .header-modify .header__logo {
-  color: var(--color-black);
+  color: var(--color-white);
+}
+
+.header-modify .btn-custom__modify {
+  color: var(--color-white);
+}
+
+.header-modify .btn-custom__modify::after {
+  background-color: var(--color-white);
+}
+
+.header-modify .product__link {
+  color: var(--color-white);
 }
 
 .header__cart {
@@ -390,14 +379,13 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   gap: 2.8rem;
-  color: #fff;
+  color: var(--color-grey);
   font-size: 1.4rem;
   font-weight: 400;
-}
-
-.product-modify {
-  color: var(--color-grey);
 }
 
 .service {
@@ -436,13 +424,34 @@ body {
   transition: all 0.3s;
 }
 
-.btn:hover::after {
+.btn-remove:hover::after {
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
 }
 
 .btn-nav {
   background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 2px;
+}
+
+.btn-nav::after {
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: -webkit-transform 0.3s linear;
+  transition: transform 0.3s linear;
+  transition: transform 0.3s linear, -webkit-transform 0.3s linear;
+}
+
+.btn-nav:hover::after {
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
 }
 
 .btn-buy:disabled {
@@ -460,48 +469,71 @@ body {
   padding-bottom: 2px;
   background-color: transparent;
   position: relative;
-  overflow: hidden;
   font-weight: 500;
 }
 
 .btn-form::after {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: -webkit-transform 0.3s linear;
+  transition: transform 0.3s linear;
+  transition: transform 0.3s linear, -webkit-transform 0.3s linear;
 }
 
 .btn-form:hover::after {
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
 }
 
 .btn-default::after {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: -webkit-transform 0.3s linear;
+  transition: transform 0.3s linear;
+  transition: transform 0.3s linear, -webkit-transform 0.3s linear;
 }
 
 .btn-default:hover::after {
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
 }
 
 .btn-custom:link, .btn-custom:visited {
-  padding-bottom: 3px;
+  overflow: visible;
+  padding-bottom: 0;
+  margin-bottom: 0.5rem;
 }
 
 .btn-custom::after {
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: -webkit-transform 0.3s linear;
+  transition: transform 0.3s linear;
+  transition: transform 0.3s linear, -webkit-transform 0.3s linear;
 }
 
 .btn-custom:hover::after {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.btn-custom__modify:link, .btn-custom__modify:visited {
+  padding-bottom: 2px;
 }
 
 .btn-login:link, .btn-login:visited {
@@ -919,21 +951,37 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 1.4rem;
+  gap: 1.5rem;
   position: relative;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc((100% - 6rem) / 3);
           flex: 0 0 calc((100% - 6rem) / 3);
   text-align: left;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  position: relative;
 }
 
 .product-item__img {
-  height: 80%;
+  max-height: 80%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.product-item__img--hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.product-item:hover .product-item__img--hover {
+  opacity: 1;
+  visibility: visible;
 }
 
 .product-item span {

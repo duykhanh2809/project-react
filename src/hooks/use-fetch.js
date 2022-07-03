@@ -1,5 +1,3 @@
-// Tam dung quay lai sau
-
 import { useState, useCallback } from "react";
 
 const useFetch = () => {
@@ -15,6 +13,7 @@ const useFetch = () => {
     setHasError(null);
     try {
       const response = await fetch(url);
+
       if (!response.ok) {
         throw new Error("Request failed!");
       }
@@ -24,7 +23,7 @@ const useFetch = () => {
       // custom
       applyFunction ? applyFunction(dataValue) : setDataRender(dataValue);
     } catch (error) {
-      setHasError("Something went wrong");
+      setHasError(error.message);
     }
     setIsLoading(false);
   },

@@ -8,8 +8,11 @@ import Sale from "./components/Sale/Sale";
 import HomePage from "./components/Pages/HomePage";
 import AllFootwear from "./components/AllFootwear/AllFootwear";
 import ProductFetch from "./components/Product/ProductFetch";
+// import ErrorBoundary from "./components/UI/ErrorBoundary";
+// import { useLocation } from "react-router-dom";
 
 function App() {
+  // const location = useLocation();
   return (
     <Layout>
       <Routes>

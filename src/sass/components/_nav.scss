@@ -1,13 +1,11 @@
 .product {
   list-style: none;
   display: flex;
+  align-items: baseline;
   gap: 2.8rem;
-  color: #fff;
+  color: var(--color-grey);
   font-size: 1.4rem;
   font-weight: 400;
-  &-modify {
-    color: var(--color-grey);
-  }
 }
 
 .service {

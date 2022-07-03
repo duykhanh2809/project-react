@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
 
-function ProductNav(props) {
-  const productClasses =
-    props.page === "hero" ? "product" : "product product-modify";
+function ProductNav() {
   return (
-    <ul className={productClasses}>
-      <Link to="/sale" className="btn-custom">
-        Sale
-      </Link>
-      <Link to="/shoes" className="btn-custom">
-        Shop All
-      </Link>
-      <li>E-Gift Card</li>
+    <ul className="product">
+      <li className="product__link">
+        <Link to="/sale" className="btn-custom btn-custom__modify">
+          Sale
+        </Link>
+      </li>
+      <li className="product__link">
+        <Link to="/shoes" className="btn-custom btn-custom__modify">
+          Shop All
+        </Link>
+      </li>
+      <li className="product__link">E-Gift Card</li>
     </ul>
   );
 }

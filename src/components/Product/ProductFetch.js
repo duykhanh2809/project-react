@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import ProductDetails from "./ProductDetails";
 import useFetch from "../../hooks/use-fetch";
+import ErrorBoundary from "../UI/ErrorBoundary";
 
 const ProductFetch = () => {
   const [dataItem, setDataItem] = useState();
   const { productId } = useParams();
-  const { isLoading, fetchShoesSale } = useFetch();
+  const { isLoading, hasError, fetchShoesSale } = useFetch();
 
   useEffect(() => {
     const matchItem = function (dataValue) {
@@ -25,10 +26,13 @@ const ProductFetch = () => {
   }, [productId]);
 
   return (
-    <section className="product-details">
-      {isLoading && <LoadingSpinner />}
-      {dataItem && <ProductDetails productData={dataItem} />}
-    </section>
+    <ErrorBoundary>
+      <section className="product-details">
+        {isLoading && <LoadingSpinner />}
+        {hasError && <p className="error-boundary">{hasError}</p>}
+        {dataItem && <ProductDetails productData={dataItem} />}
+      </section>
+    </ErrorBoundary>
   );
 };
 

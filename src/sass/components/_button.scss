@@ -3,7 +3,7 @@
   font-family: inherit;
   cursor: pointer;
 
-  // TREN NAY LA BUTTON
+  // BUTTON
   &-create {
     @extend %btn-special;
     font-weight: 600;
@@ -15,18 +15,32 @@
     position: relative;
     overflow: hidden;
   }
+
   &-remove::after {
     @extend %link-hover-pseudo;
     transform: translateX(0);
     transition: all 0.3s;
   }
 
-  &:hover::after {
+  &-remove:hover::after {
     transform: translateX(100%);
   }
 
   &-nav {
     background-color: transparent;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 2px;
+  }
+
+  &-nav::after {
+    @extend %link-hover-pseudo;
+    @include hoverEffect(right, 0);
+    transition: transform 0.3s linear;
+  }
+
+  &-nav:hover::after {
+    @include hoverEffect(left, 1);
   }
 
   &-buy:disabled {
@@ -40,59 +54,70 @@
     color: var(--color-grey-dark-1);
   }
 
-  // button duoi form footer
+  // Button of footer form
   &-form {
     padding-bottom: 2px;
     background-color: transparent;
     position: relative;
-    overflow: hidden;
     font-weight: 500;
 
     &::after {
       @extend %link-hover-pseudo;
-      transform: translateX(0);
-      transition: all 0.3s;
+      @include hoverEffect(left, 1);
+      transition: transform 0.3s linear;
     }
 
     &:hover::after {
-      transform: translateX(100%);
+      @include hoverEffect(right, 0);
     }
   }
 
-  // BEN DUOI LA <a></a> ANCHOR
-  // <a></a> Chua hove da co line
+  // <a></a> ANCHOR
+  // Have underline before hover
   &-default {
     &:link,
     &:visited {
       @extend %link-hover;
+      // transition: opacity 1s linear, transform 2s linear;
+      // transition-delay: 0.9s;
     }
 
     &::after {
       @extend %link-hover-pseudo;
-      transform: translateX(0);
-      transition: all 0.3s;
+      @include hoverEffect(left, 1);
+      transition: transform 0.3s linear;
     }
 
     &:hover::after {
-      transform: translateX(100%);
+      @include hoverEffect(right, 0);
+      // transition-delay: 0s;
     }
   }
-  // <a></a> Hover thi line moi ra
+  // Initial state not have underline
   &-custom {
     &:link,
     &:visited {
       @extend %link-hover;
-      padding-bottom: 3px;
+      overflow: visible;
+      padding-bottom: 0;
+      margin-bottom: 0.5rem;
     }
 
     &::after {
       @extend %link-hover-pseudo;
-      transform: translateX(-100%);
-      transition: all 0.5s;
+      @include hoverEffect(right, 0);
+      transition: transform 0.3s linear;
     }
 
     &:hover::after {
-      transform: translateX(0);
+      @include hoverEffect(left, 1);
+    }
+  }
+
+  &-custom__modify {
+    &:link,
+    &:visited {
+      padding-bottom: 2px;
     }
   }
   // <a></a>

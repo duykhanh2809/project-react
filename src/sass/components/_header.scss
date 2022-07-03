@@ -11,19 +11,32 @@
     flex: 1;
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
   }
   &__logo {
     text-decoration: none;
-    color: #fff;
+    color: var(--color-black);
     font-size: 2.4rem;
     letter-spacing: 1rem;
     font-weight: 700;
   }
 
+  // custom for homepage
   &-modify &__logo {
-    color: var(--color-black);
+    color: var(--color-white);
   }
 
+  &-modify .btn-custom__modify {
+    &::after {
+      background-color: var(--color-white);
+    }
+    color: var(--color-white);
+  }
+
+  &-modify .product__link {
+    color: var(--color-white);
+  }
+  ///////////////
   &__cart {
     position: relative;
     color: var(--color-white);

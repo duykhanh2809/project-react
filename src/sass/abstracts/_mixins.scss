@@ -25,6 +25,13 @@
   font-size: 1.3rem;
   color: var(--color-white);
 }
+
+// MIXINS
+@mixin hoverEffect($origin, $scale) {
+  transform-origin: $origin;
+  transform: scaleX($scale);
+}
+
 // MEDIA QUERY MANAGER
 /*
 0 - 600px: Phone

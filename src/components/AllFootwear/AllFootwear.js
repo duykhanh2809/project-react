@@ -3,9 +3,10 @@ import { useEffect } from "react";
 import ProductItem from "../Product/ProductItem";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import useFetch from "../../hooks/use-fetch";
+import ErrorBoundary from "../UI/ErrorBoundary";
 
 const AllFootwear = function () {
-  const { isLoading, dataRender, fetchShoesSale } = useFetch();
+  const { isLoading, dataRender, hasError, fetchShoesSale } = useFetch();
 
   useEffect(() => {
     fetchShoesSale(
@@ -14,40 +15,43 @@ const AllFootwear = function () {
   }, [fetchShoesSale]);
 
   return (
-    <div className="pages-all">
-      <p className="sub-heading mg-bt-large ">All footwear</p>
-      {isLoading && <LoadingSpinner />}
-      <div className="pages-all__grid">
-        {dataRender.map((ele, ind) => {
-          if (ind < 6)
-            return (
-              <ProductItem
-                key={ind}
-                name={ele.name}
-                isSale={ele.priceSale}
-                price={ele.price}
-                priceSale={ele.priceSale}
-                imageUrl={ele.image}
-              />
-            );
-        })}
+    <ErrorBoundary>
+      <div className="pages-all">
+        <p className="sub-heading mg-bt-large ">All footwear</p>
+        {isLoading && <LoadingSpinner />}
+        {hasError && <p className="error-boundary">{hasError}</p>}
+        <div className="pages-all__grid">
+          {dataRender.map((ele, ind) => {
+            if (ind < 6)
+              return (
+                <ProductItem
+                  key={ind}
+                  name={ele.name}
+                  isSale={ele.priceSale}
+                  price={ele.price}
+                  priceSale={ele.priceSale}
+                  imageUrl={ele.image}
+                />
+              );
+          })}
+        </div>
+        <div className="pages-all__grid-custom">
+          {dataRender.map((ele, ind) => {
+            if (ind > 5)
+              return (
+                <ProductItem
+                  key={ind}
+                  name={ele.name}
+                  isSale={ele.priceSale}
+                  price={ele.price}
+                  priceSale={ele.priceSale}
+                  imageUrl={ele.image}
+                />
+              );
+          })}
+        </div>
       </div>
-      <div className="pages-all__grid-custom">
-        {dataRender.map((ele, ind) => {
-          if (ind > 5)
-            return (
-              <ProductItem
-                key={ind}
-                name={ele.name}
-                isSale={ele.priceSale}
-                price={ele.price}
-                priceSale={ele.priceSale}
-                imageUrl={ele.image}
-              />
-            );
-        })}
-      </div>
-    </div>
+    </ErrorBoundary>
   );
 };
 

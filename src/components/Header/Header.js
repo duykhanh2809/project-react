@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import ProductNav from "./ProductNav";
 import ServiceNav from "./ServiceNav";
 import CheckAccount from "../Account/CheckAccount";
@@ -7,12 +7,14 @@ import CheckContext from "../../store/ContextAPI/check-context";
 import { ModalMain } from "../UI/Modal";
 import Cart from "../Cart/Cart";
 import CartDropDown from "../Cart/CartDropDown";
+import { useLocation } from "react-router-dom";
 
 const Header = (props) => {
   const accountCtx = useContext(CheckContext);
+  const location = useLocation();
 
   const headerClasses =
-    props.pages === "hero" ? "header" : "header header-modify";
+    location.pathname === "/" ? "header header-modify" : "header";
 
   return (
     <header className={headerClasses}>

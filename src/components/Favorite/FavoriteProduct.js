@@ -1,22 +1,29 @@
 import ProductItem from "../Product/ProductItem";
 import { CaretRight, CaretLeft } from "phosphor-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import useFetch from "../../hooks/use-fetch";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import { useRef } from "react";
+
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+};
 
 const FavoriteProduct = (props) => {
-  const { isLoading, dataRender, fetchShoesSale } = useFetch();
-  // custom
-  const [currentSlide, setCurrentSlide] = useState(2);
+  const { isLoading, dataRender, hasError, fetchShoesSale } = useFetch();
 
-  const prevItemHandler = () => {
-    setCurrentSlide(
-      currentSlide !== 0 ? currentSlide - 1 : dataRender.length - 1
-    );
-  };
-  const nextItemHandler = () => {
-    setCurrentSlide(currentSlide === dataRender.length ? 0 : currentSlide + 1);
-  };
+  const sliderRef = useRef(null);
+
+  useEffect(() => {
+    console.log(sliderRef);
+  }, []);
 
   useEffect(() => {
     fetchShoesSale(
@@ -34,16 +41,24 @@ const FavoriteProduct = (props) => {
           <h2 className="heading-secondary">You might also like</h2>
         )}
         <div>
-          <button className="favorite__btn" onClick={prevItemHandler}>
+          <button
+            className="favorite__btn"
+            onClick={() => sliderRef.current.slickPrev()}
+          >
             <CaretLeft size={16} color="black" weight="bold" />
           </button>
-          <button className="favorite__btn" onClick={nextItemHandler}>
+          <button
+            className="favorite__btn"
+            onClick={() => sliderRef.current.slickNext()}
+          >
             <CaretRight size={16} color="black" weight="bold" />
           </button>
         </div>
       </div>
       {isLoading && <LoadingSpinner />}
-      <div className="favorite__content">
+      {hasError && <p className="error-boundary">{hasError}</p>}
+      {/* <div className="favorite__content"> */}
+      <Slider {...settings} ref={sliderRef}>
         {dataRender.map((ele, ind) => {
           return (
             <ProductItem
@@ -55,9 +70,9 @@ const FavoriteProduct = (props) => {
               imageUrl={ele.image}
             />
           );
-          return;
         })}
-      </div>
+      </Slider>
+      {/* </div> */}
     </section>
   );
 };
