@@ -62,6 +62,7 @@ breakpoint argument choices:
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 ::-moz-selection {
@@ -133,6 +134,50 @@ del {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
+}
+
+.fade-dropdown-enter {
+  opacity: 0;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
+.fade-dropdown-enter-active {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: all 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
+  transition: all 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
+}
+
+.fade-dropdown-exit {
+  opacity: 1;
+}
+
+.fade-dropdown-exit-active {
+  opacity: 0;
+  -webkit-transition: all 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
+  transition: all 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
+}
+
+.fade-modal-enter {
+  opacity: 0;
+}
+
+.fade-modal-enter-active {
+  opacity: 1;
+  -webkit-transition: all 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
+  transition: all 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
+}
+
+.fade-modal-exit {
+  opacity: 1;
+}
+
+.fade-modal-exit-active {
+  opacity: 0;
+  -webkit-transition: all 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
+  transition: all 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
 }
 
 body {
@@ -238,6 +283,17 @@ body {
   margin-bottom: 8rem;
 }
 
+.info-bar {
+  font-size: 1.6rem;
+}
+
+.info-bar__login {
+  line-height: 1.5;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -249,9 +305,25 @@ body {
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
-  padding: 3rem 4rem;
-  position: relative;
   color: var(--color-grey-dark-2);
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: auto;
+  z-index: 999;
+  padding: 1rem 3rem 1.4rem;
+  margin: 1rem 1rem 1.6rem;
+  border: 1px solid transparent;
+}
+
+.header__sticky {
+  padding: 1rem 3rem 1.4rem;
+  margin: 1rem 1rem 1.6rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--color-grey-light-3);
 }
 
 .header__nav {
@@ -293,7 +365,25 @@ body {
   color: var(--color-white);
 }
 
+.header__sticky .header__logo {
+  color: var(--color-black);
+}
+
+.header__sticky .btn-custom__modify {
+  color: var(--color-black);
+}
+
+.header__sticky .btn-custom__modify::after {
+  background-color: var(--color-black);
+}
+
+.header__sticky .product__link {
+  color: var(--color-black);
+}
+
 .header__cart {
+  -ms-flex-preferred-size: 2%;
+      flex-basis: 2%;
   position: relative;
   color: var(--color-white);
   font-size: 1.2rem;
@@ -418,15 +508,21 @@ body {
 }
 
 .btn-remove::after {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: -webkit-transform 0.3s linear;
+  transition: transform 0.3s linear;
+  transition: transform 0.3s linear, -webkit-transform 0.3s linear;
 }
 
 .btn-remove:hover::after {
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
 }
 
 .btn-nav {
@@ -548,8 +644,8 @@ body {
 
 .check {
   position: absolute;
-  top: 10%;
-  right: 0.8%;
+  top: 0;
+  right: 0;
   width: 35%;
   height: 29rem;
   background-color: var(--color-white);
@@ -560,7 +656,7 @@ body {
 .check__intro {
   margin: 8rem 0 3rem 0;
   padding-bottom: 4rem;
-  border-bottom: 1px solid var(--color-grey-light-2);
+  border-bottom: 1px solid var(--color-grey-light-3);
   font-size: 1.4rem;
   font-weight: 400;
   z-index: 3;
@@ -680,7 +776,7 @@ body {
 }
 
 .account {
-  padding: 3rem 4rem;
+  padding: 12rem 4rem 3rem;
   margin-top: 3rem;
 }
 
@@ -692,7 +788,7 @@ body {
   margin-bottom: 2.5rem;
 }
 
-.account-info {
+.account-sidebar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -711,6 +807,11 @@ body {
   left: 0;
   top: 0;
   margin-top: 12rem;
+}
+
+.account__options {
+  list-style: none;
+  line-height: 1.6;
 }
 
 .account-register {
@@ -811,6 +912,31 @@ body {
 .account-login .btn-create {
   -ms-grid-column-align: end;
       justify-self: end;
+}
+
+.account-general {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5rem;
+  line-height: 1.65;
+}
+
+.account-general div {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 40%;
+          flex: 0 1 40%;
+}
+
+.account-general .btn-default {
+  padding-bottom: 0;
+}
+
+.account-address .sub-heading {
+  padding-bottom: 1.6rem;
+  margin-right: 8rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-grey-light-4);
 }
 
 .modal {
@@ -996,7 +1122,7 @@ body {
 }
 
 .pages-sale {
-  padding: 3rem 4rem;
+  padding: 13rem 4rem 3rem;
   text-align: center;
 }
 
@@ -1011,7 +1137,7 @@ body {
 }
 
 .pages-all {
-  padding: 3rem 4rem;
+  padding: 13rem 4rem 3rem;
   text-align: center;
 }
 
@@ -1038,7 +1164,7 @@ body {
 }
 
 .product-details {
-  padding: 3rem 6rem 3rem 4rem;
+  padding: 10rem 6rem 3rem 4rem;
 }
 
 .product-details .favorite-section {
@@ -1051,6 +1177,7 @@ body {
   display: flex;
   gap: 6rem;
   margin-bottom: 10rem;
+  padding-top: 3rem;
 }
 
 .product-images {

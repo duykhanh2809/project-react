@@ -1,8 +1,10 @@
 .check {
   position: absolute;
   // Cac don vi phan tram nay deu duoc tinh dua tren cai no relative
-  top: 10%;
-  right: 0.8%;
+  // top: 10%;
+  // right: 0.8%;
+  top: 0;
+  right: 0;
   width: 35%;
   height: 29rem;
   background-color: var(--color-white);
@@ -12,7 +14,7 @@
   &__intro {
     margin: 8rem 0 3rem 0;
     padding-bottom: 4rem;
-    border-bottom: 1px solid var(--color-grey-light-2);
+    border-bottom: 1px solid var(--color-grey-light-3);
 
     font-size: 1.4rem;
     font-weight: 400;

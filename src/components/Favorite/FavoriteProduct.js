@@ -22,10 +22,6 @@ const FavoriteProduct = (props) => {
   const sliderRef = useRef(null);
 
   useEffect(() => {
-    console.log(sliderRef);
-  }, []);
-
-  useEffect(() => {
     fetchShoesSale(
       "https://project-react-cf626-default-rtdb.firebaseio.com/sales.json"
     );

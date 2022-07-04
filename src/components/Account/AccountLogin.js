@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { accountActions } from "../../store/redux/account-slice";
+import { fetchDataUser } from "../../store/redux/account-actions";
 
 const AccountLogin = function () {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
+  const [idUser, setIdUser] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const emailChangeHandler = (event) => {
     setEmailInput(event.target.value);
@@ -14,9 +23,6 @@ const AccountLogin = function () {
 
   const submitHandler = (event) => {
     event.preventDefault();
-
-    setEmailInput("");
-    setPasswordInput("");
 
     const signinAccout = async function () {
       const response = await fetch(
@@ -33,21 +39,45 @@ const AccountLogin = function () {
           },
         }
       );
-
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
       const data = await response.json();
-
-      console.log(data);
-
+      setIdUser(data.idToken);
+      if (data.error) throw new Error(data.error.message);
       return data;
     };
 
-    signinAccout().catch((error) => {
-      console.log(error.message);
-    });
+    signinAccout()
+      .then(() =>
+        toast.success(
+          "Login successful, navigate to homepage within the next few seconds...",
+          {
+            position: toast.POSITION.TOP_CENTER,
+            className: "info-bar info-bar__login",
+            autoClose: 1500,
+          }
+        )
+      )
+      .then(() => {
+        setTimeout(() => {
+          navigate("/", { replace: true });
+          dispatch(accountActions.updateState());
+        }, 2000);
+      })
+      .catch((error) =>
+        toast.error(error.message, {
+          position: toast.POSITION.TOP_CENTER,
+          className: "info-bar ",
+          autoClose: 1500,
+        })
+      );
+
+    setEmailInput("");
+    setPasswordInput("");
   };
+
+  useEffect(() => {
+    if (!idUser) return;
+    dispatch(fetchDataUser(idUser));
+  }, [idUser]);
 
   return (
     <div className="account-details">
@@ -79,6 +109,7 @@ const AccountLogin = function () {
           Sign in
         </button>
       </form>
+      <ToastContainer />
     </div>
   );
 };

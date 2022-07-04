@@ -1,8 +1,12 @@
 import { useContext } from "react";
 import CheckContext from "../../store/ContextAPI/check-context";
+import { useSelector } from "react-redux";
 
 const ServiceNav = function (props) {
   const checkCtx = useContext(CheckContext);
+  const nameAccount = useSelector(
+    (state) => state.account.userData.displayName
+  );
 
   const showCheckAccountHandler = () => {
     checkCtx.cancelCheck();
@@ -15,7 +19,7 @@ const ServiceNav = function (props) {
       <li>Help</li>
       <li>
         <button className="btn btn-nav" onClick={showCheckAccountHandler}>
-          My Account
+          {nameAccount ? nameAccount : "My Account"}
         </button>
       </li>
     </ul>

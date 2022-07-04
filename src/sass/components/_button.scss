@@ -18,12 +18,12 @@
 
   &-remove::after {
     @extend %link-hover-pseudo;
-    transform: translateX(0);
-    transition: all 0.3s;
+    @include hoverEffect(left, 1);
+    transition: transform 0.3s linear;
   }
 
   &-remove:hover::after {
-    transform: translateX(100%);
+    @include hoverEffect(right, 0);
   }
 
   &-nav {

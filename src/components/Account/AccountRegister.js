@@ -1,10 +1,21 @@
-import { useState, useReducer } from "react";
+import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router";
 
 const AccountRegister = function () {
+  const navigate = useNavigate();
+  ///////////
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [birthday, setBirthday] = useState("");
+
+  // checkbox & radio
+  const [checked, setChecked] = useState(false);
+  const [radioOne, setRadioOne] = useState(false);
+  const [radioTwo, setRadioTwo] = useState(false);
 
   const firstNameChangeHandler = (event) => {
     setFirstName(event.target.value);
@@ -19,14 +30,21 @@ const AccountRegister = function () {
   const passwordChangeHandler = (event) => {
     setPasswordInput(event.target.value);
   };
+  const birthdayHandler = (event) => {
+    setBirthday(event.target.value);
+  };
 
   const submitHandler = (event) => {
     event.preventDefault();
 
-    setEmailInput("");
-    setPasswordInput("");
-    setFirstName("");
-    setLastName("");
+    // const update = () =>
+    //   toast("Please waiting...", {
+    //     position: toast.POSITION.TOP_CENTER,
+    //     className: "info-bar",
+    //     // autoClose: 1500,
+    //   });
+
+    // update();
 
     const postSignupToServer = async function () {
       const response = await fetch(
@@ -43,13 +61,9 @@ const AccountRegister = function () {
           },
         }
       );
-
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
       const data = await response.json();
 
-      console.log(data);
+      if (data.error) throw new Error(data.error.message);
 
       const updateProfile = await fetch(
         "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyCUQAzV-KnsNTwjd9wRzXeUE9lPD0P4cVc",
@@ -71,18 +85,46 @@ const AccountRegister = function () {
       }
 
       const dataUpdate = await updateProfile.json();
-
       return dataUpdate;
     };
 
-    postSignupToServer().catch((error) => {
-      console.log(error.message);
-    });
+    postSignupToServer()
+      .then(() =>
+        toast.success("Signup successful", {
+          position: toast.POSITION.TOP_CENTER,
+          className: "info-bar",
+          autoClose: 1500,
+        })
+      )
+      .then(() =>
+        toast.info("PLEASE LOG IN NOW !", {
+          position: toast.POSITION.TOP_CENTER,
+          className: "info-bar",
+        })
+      )
+      .catch((error) =>
+        toast.error(error.message, {
+          position: toast.POSITION.TOP_CENTER,
+          className: "info-bar",
+          autoClose: 1500,
+        })
+      );
+
+    setEmailInput("");
+    setPasswordInput("");
+    setFirstName("");
+    setLastName("");
+    setBirthday("");
+
+    // checkbox and radio button
+    setChecked(false);
+    setRadioOne(false);
+    setRadioTwo(false);
   };
 
   return (
     <div className="account-details">
-      <h3 className="heading-tertiary">Create Account</h3>
+      <h3 className="heading-tertiary mg-bt-large">Create Account</h3>
       <form className="account-register" onSubmit={submitHandler}>
         <div>
           <label htmlFor="firstname">First name*</label>
@@ -112,11 +154,23 @@ const AccountRegister = function () {
             placeholder="dd/mm/yyyy"
             required
             pattern="[0-9/-]{8,10}"
+            value={birthday}
+            onChange={birthdayHandler}
           />
         </div>
         <div>
           <label>Gender*</label>
-          <input type="radio" value="Male" id="male" name="gender" required />
+          <input
+            type="radio"
+            value="Male"
+            id="male"
+            name="gender"
+            required
+            checked={radioOne}
+            onChange={(event) => {
+              setRadioOne(event.target.checked);
+            }}
+          />
           <label htmlFor="male">Male</label>
           <input
             type="radio"
@@ -124,6 +178,10 @@ const AccountRegister = function () {
             id="female"
             name="gender"
             required
+            checked={radioTwo}
+            onChange={(event) => {
+              setRadioTwo(event.target.checked);
+            }}
           />
           <label htmlFor="female">Female</label>
         </div>
@@ -149,13 +207,23 @@ const AccountRegister = function () {
           />
         </div>
         <div>
-          <input type="checkbox" value="true" id="checkbox" name="subscribe" />
+          <input
+            type="checkbox"
+            checked={checked}
+            value="checked"
+            id="checkbox"
+            name="subscribe"
+            onChange={(event) => {
+              setChecked(event.target.checked);
+            }}
+          />
           <label htmlFor="checkbox">Subscribe to newsletter</label>
         </div>
         <button type="submit" className="btn btn-create">
           Create account
         </button>
       </form>
+      <ToastContainer />
     </div>
   );
 };

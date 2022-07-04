@@ -1,6 +1,6 @@
 .product {
   &-details {
-    padding: 3rem 6rem 3rem 4rem;
+    padding: 10rem 6rem 3rem 4rem;
     & .favorite-section {
       padding: 0;
     }
@@ -9,6 +9,8 @@
     display: flex;
     gap: 6rem;
     margin-bottom: 10rem;
+    // custom
+    padding-top: 3rem;
   }
 
   &-images {

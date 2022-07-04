@@ -16,3 +16,46 @@
     transform: rotate(360deg);
   }
 }
+
+// CSS Transition Group
+// Dropdown
+.fade-dropdown-enter {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.fade-dropdown-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
+}
+
+.fade-dropdown-exit {
+  opacity: 1;
+  // transform: translateY(0);
+}
+
+.fade-dropdown-exit-active {
+  opacity: 0;
+  // transform: translateY(-100%);
+  transition: all 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
+}
+
+// Modal
+.fade-modal-enter {
+  opacity: 0;
+}
+
+.fade-modal-enter-active {
+  opacity: 1;
+  transition: all 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
+}
+
+.fade-modal-exit {
+  opacity: 1;
+}
+
+.fade-modal-exit-active {
+  opacity: 0;
+  transition: all 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
+}
