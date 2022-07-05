@@ -1,8 +1,6 @@
 .check {
   position: absolute;
   // Cac don vi phan tram nay deu duoc tinh dua tren cai no relative
-  // top: 10%;
-  // right: 0.8%;
   top: 0;
   right: 0;
   width: 35%;
@@ -10,6 +8,10 @@
   background-color: var(--color-white);
   z-index: 2;
   padding: 2.8rem;
+
+  @media only screen and (max-width: $bp-large) {
+    width: 45%;
+  }
 
   &__intro {
     margin: 8rem 0 3rem 0;

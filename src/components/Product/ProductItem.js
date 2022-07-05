@@ -27,11 +27,11 @@ const ProductItem = (props) => {
         className="product-item__img"
       />
 
-      {/* <img
+      <img
         src={props.imageUrl.second}
         alt="Shoe 1"
         className="product-item__img product-item__img--hover"
-      /> */}
+      />
 
       <figcaption>
         <p className="sub-heading">{props.name}</p>

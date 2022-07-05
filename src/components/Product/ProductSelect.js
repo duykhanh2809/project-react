@@ -33,7 +33,7 @@ const ProductSelect = function (props) {
   };
 
   return (
-    <form className="product-select">
+    <form className="product-select mg-bt-small">
       <select id="size" value={size} onChange={changeSizeHandler}>
         <option value="">--Size--</option>
         <option value="EU 39 | US 6 | UK 5">EU 39 | US 6 | UK 5</option>
@@ -45,21 +45,6 @@ const ProductSelect = function (props) {
         <option value="EU 45 | US 12| UK 11">EU 45 | US 12| UK 11</option>
         <option value="EU 46 | US 13| UK 12">EU 46 | US 13| UK 12</option>
       </select>
-      {/* {!isClicked && (
-        <button
-          className="btn btn-create btn-buy"
-          disabled={!size}
-          type="submit"
-          onClick={selectSizeHandler}
-        >
-          Add to bag
-        </button>
-      )}
-      {isClicked && (
-        <button className="btn btn-create btn-buy__done" disabled={true}>
-          Added to bag!
-        </button>
-      )} */}
       {!showButton && (
         <button
           className="btn btn-create btn-buy"

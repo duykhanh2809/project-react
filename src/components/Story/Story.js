@@ -20,7 +20,7 @@ const DUMMY_DATA = [
 
 const Story = function () {
   return (
-    <section className="story-section">
+    <section className="story-section container">
       {DUMMY_DATA.map((ele, ind) => {
         const [imageUrl, heading, describe] = ele;
         return (

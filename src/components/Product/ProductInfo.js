@@ -1,6 +1,6 @@
 const ProductInfo = function () {
   return (
-    <div className="product-info">
+    <div className="product-info container">
       <div className="product__description">
         <h3 className="heading-tertiary mg-bt-large">Description</h3>
         <p className="mg-bt-medium">

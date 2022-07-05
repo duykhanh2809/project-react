@@ -47,24 +47,31 @@
   margin-bottom: 10rem;
 }
 
-// TEST
-.slick-track {
-  display: flex !important;
-  gap: 5rem;
+.mg-top-medium {
+  margin-top: 2rem;
 }
 
-.slick-slide {
-  margin-left: -3rem;
+// Swiper react
+.swiper {
+  display: flex;
+  flex-direction: column;
+
+  .favorite__heading {
+    order: -1;
+  }
 }
 
-.slick-slider {
-  margin-bottom: 8rem;
-}
+.swiper .product-item__img--hover {
+  max-height: 88.5%;
 
-// .slick-active {
-//   margin-left: -1rem;
-//   margin-right: 1.8rem;
-// }
+  @media only screen and (min-width: $bp-largest) {
+    max-height: 89.4%;
+  }
+
+  @media only screen and (max-width: $bp-large) {
+    max-height: 84.5%;
+  }
+}
 
 // React Toastify
 .info-bar {

@@ -1,7 +1,7 @@
 const StoryItem = (props) => {
   return (
     <div className="story__item">
-      <div>
+      <div className="story__images">
         <img src={props.imageUrl} alt="Item 1" className="story__img" />
       </div>
       <div className="story__detail">

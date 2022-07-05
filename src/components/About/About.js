@@ -1,6 +1,6 @@
 function About() {
   return (
-    <section className="about-section">
+    <section className="about-section container">
       <div className="about__item">
         <img
           src="https://cdn.shopify.com/s/files/1/0505/9044/9849/files/Laundry_Store_Homepage-image_750x.jpg?v=1631259918"

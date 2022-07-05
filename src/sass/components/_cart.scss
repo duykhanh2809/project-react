@@ -1,8 +1,8 @@
 .cart {
   &__drop {
     position: absolute;
-    top: 10%;
-    right: 0.8%;
+    top: 0;
+    right: 0;
     width: 35%;
     height: auto;
     background-color: var(--color-white);
@@ -15,12 +15,70 @@
       margin-top: 2rem;
       align-self: flex-end;
     }
+
+    @media only screen and (max-width: $bp-large) {
+      width: 45%;
+      padding-top: 6rem;
+    }
+  }
+
+  &__summary {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 3rem 4rem;
+    width: 40%;
+
+    @media only screen and (max-width: $bp-large) {
+      z-index: 10;
+      width: 50%;
+    }
+  }
+
+  &__orders {
+    max-height: 40vh;
+    overflow: auto;
+
+    label {
+      display: block;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      color: var(--color-black);
+    }
+
+    input {
+      width: 100%;
+      padding: 1.4rem;
+      border: 1px solid var(--color-grey-light-4);
+      font-family: inherit;
+      margin-bottom: 1rem;
+
+      &:focus {
+        outline: 1px solid var(--color-grey-light-2);
+      }
+    }
+  }
+
+  &__btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      margin: 0;
+      font-size: 1.3rem;
+    }
   }
 
   &__show {
     max-height: 58vh;
-    // overflow-y: scroll;
     overflow-y: auto;
+  }
+
+  &__show-modify {
+    max-height: 16vh;
   }
 
   &__item {
@@ -68,9 +126,5 @@
     border-top: 1px solid var(--color-grey-light-4);
     border-bottom: 1px solid var(--color-grey-light-4);
     font-size: 1.3rem;
-  }
-
-  &__total-modify {
-    // padding-bottom: 4rem;
   }
 }

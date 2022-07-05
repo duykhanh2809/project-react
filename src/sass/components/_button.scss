@@ -9,6 +9,11 @@
     font-weight: 600;
   }
 
+  &-create:disabled {
+    cursor: initial;
+    color: var(--color-grey-light-1);
+  }
+
   &-remove {
     background-color: transparent;
     font-size: 1.2rem;

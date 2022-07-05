@@ -3,7 +3,7 @@ import AccountSideBar from "./AccountSideBar";
 
 const Account = () => {
   return (
-    <div className="account">
+    <div className="account container">
       <AccountSideBar />
       <Outlet />
     </div>

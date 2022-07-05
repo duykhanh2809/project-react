@@ -12,11 +12,13 @@ export const CheckContextProvider = (props) => {
   const [isCartChecking, setIsCartChecking] = useState(false);
   const [isChecking, setIsChecking] = useState(false);
   const [isChangingProduct, setIsChangingProduct] = useState(false);
+  const [isOrdering, setIsOrdering] = useState(false);
 
   const cancelCheck = () => {
     setIsAccountChecking(false);
     setIsCartChecking(false);
     setIsChecking(false);
+    setIsOrdering(false);
   };
 
   const setAccountChecking = () => {
@@ -33,14 +35,20 @@ export const CheckContextProvider = (props) => {
     setIsChangingProduct(para);
   };
 
+  const setIsOrder = () => {
+    setIsOrdering(true);
+  };
+
   const initialValue = {
     isChecking,
     isAccountChecking,
     isCartChecking,
     isChangingProduct,
+    isOrdering,
     setAccountChecking,
     setCartChecking,
     setChangingProduct,
+    setIsOrder,
     cancelCheck,
   };
 

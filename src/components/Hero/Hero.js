@@ -1,10 +1,9 @@
-import heroImage from "../../assets/img/hero_image.png";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="hero-section">
-      <img src={heroImage} alt="image hero section" className="hero__img" />
+    <section className="hero-section container mg-bt-large">
+      <div className="hero__img"></div>
       <div className="hero__content">
         <p>Don't miss out.</p>
         <h2 className="heading-secondary">We're live.</h2>

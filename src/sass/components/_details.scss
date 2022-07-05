@@ -1,16 +1,30 @@
 .product {
   &-details {
     padding: 10rem 6rem 3rem 4rem;
+
     & .favorite-section {
       padding: 0;
     }
+
+    @media only screen and (max-width: $bp-large) {
+      padding: 0 0 4rem;
+
+      .favorite-section {
+        padding: 0 4rem;
+      }
+    }
   }
+
   &-inner {
     display: flex;
     gap: 6rem;
     margin-bottom: 10rem;
-    // custom
     padding-top: 3rem;
+
+    @media only screen and (max-width: $bp-large) {
+      padding-top: 0;
+      flex-direction: column;
+    }
   }
 
   &-images {
@@ -31,14 +45,23 @@
     &__offer {
       list-style: none;
       margin-left: 1.8rem;
-
       li {
         position: relative;
-        line-height: 1.4;
+        line-height: 1.6;
       }
 
       li:not(:last-child) {
         margin-bottom: 1rem;
+      }
+    }
+
+    @media only screen and (max-width: $bp-large) {
+      padding: 0 4rem;
+      flex-direction: row;
+      gap: 3rem;
+
+      div {
+        flex-basis: 50%;
       }
     }
   }
@@ -54,6 +77,11 @@
     background-image: url(../../assets/img/svg/iconmonstr-check-mark-17_small.svg);
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  &-buy__select {
+    display: flex;
+    flex-direction: column;
   }
 
   &-buy__guide {
@@ -91,6 +119,10 @@
     font-size: 1.4rem;
     color: var(--color-grey-dark-2);
     margin-bottom: 10rem;
+
+    @media only screen and (max-width: $bp-large) {
+      padding: 0 4rem;
+    }
   }
 
   &-img {

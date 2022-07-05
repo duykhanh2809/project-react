@@ -16,7 +16,7 @@ const AllFootwear = function () {
 
   return (
     <ErrorBoundary>
-      <div className="pages-all">
+      <div className="pages-all container">
         <p className="sub-heading mg-bt-large ">All footwear</p>
         {isLoading && <LoadingSpinner />}
         {hasError && <p className="error-boundary">{hasError}</p>}

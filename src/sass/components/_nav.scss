@@ -16,4 +16,12 @@
   font-size: 1.4rem;
   font-weight: 400;
   z-index: 3;
+
+  @media only screen and (max-width: $bp-large) {
+    color: var(--color-white);
+
+    .btn-nav {
+      color: var(--color-white);
+    }
+  }
 }

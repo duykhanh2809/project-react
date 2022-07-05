@@ -7,7 +7,7 @@ const ProductDetails = (props) => {
   const imageRender = Object.values(props.productData.image);
   return (
     <Fragment>
-      <div className="product-inner">
+      <div className="product-inner container">
         <div className="product-images">
           {imageRender.map((ele, ind) => {
             return (

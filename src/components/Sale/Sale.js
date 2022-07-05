@@ -15,7 +15,7 @@ const Sale = function () {
 
   return (
     <ErrorBoundary>
-      <div className="pages-sale">
+      <div className="pages-sale container">
         <p className="sub-heading mg-bt-medium ">We're live.</p>
         <h2 className="heading-secondary mg-bt-huge">S/S 22 Sale. 30% Off.</h2>
         <div className="pages-sale__grid">

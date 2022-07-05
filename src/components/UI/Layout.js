@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import Account from "../Account/Account";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 

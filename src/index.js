@@ -7,15 +7,18 @@ import { BrowserRouter } from "react-router-dom";
 import { CheckContextProvider } from "./store/ContextAPI/check-context";
 import { Provider } from "react-redux";
 import store from "./store/redux/index";
+import { ScrollToTop } from "./components/UI/ScrollToTop";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <CheckContextProvider>
-          <App />
-        </CheckContextProvider>
+        <ScrollToTop>
+          <CheckContextProvider>
+            <App />
+          </CheckContextProvider>
+        </ScrollToTop>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>

@@ -5,7 +5,7 @@ import FooterPayments from "./FooterPayments";
 const Footer = () => {
   return (
     <Fragment>
-      <footer className="footer">
+      <footer className="footer container">
         <div className="footer__about">
           <p className="footer__heading">About</p>
           <p>
