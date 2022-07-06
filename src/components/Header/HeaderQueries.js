@@ -10,10 +10,10 @@ import { useLocation } from "react-router-dom";
 import CSSTransition from "react-transition-group/CSSTransition";
 
 const HeaderQueries = () => {
-  const isLogin = useSelector((state) => state.account.isLoggedIn);
-  const nameLogin = useSelector((state) => state.account.userData.displayName);
   const [isSticky, setIsSticky] = useState("");
   const [isShowNav, setIsShowNav] = useState(false);
+  const isLogin = useSelector((state) => state.account.isLoggedIn);
+  const nameLogin = useSelector((state) => state.account.userData.displayName);
   const headerRef = useRef();
   const accountCtx = useContext(CheckContext);
   const location = useLocation();

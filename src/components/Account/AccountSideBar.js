@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { accountActions } from "../../store/redux/account-slice";
 import { toast, ToastContainer } from "react-toastify";
@@ -18,14 +18,14 @@ function AccountSideBar() {
     });
   };
 
-  const logoutHandler = () => {
+  const logoutHandler = useCallback(() => {
     setIsClicked(true);
     toast.info("Logout successful", {
       position: toast.POSITION.TOP_CENTER,
       className: "info-bar info-bar__login",
       autoClose: 1500,
     });
-  };
+  }, []);
 
   useEffect(() => {
     if (!isClicked) return;

@@ -1,9 +1,8 @@
-import ProductItem from "../Product/ProductItem";
-import { CaretRight, CaretLeft } from "phosphor-react";
 import { useEffect } from "react";
-import LoadingSpinner from "../UI/LoadingSpinner";
 import useFetch from "../../hooks/use-fetch";
-
+import ProductItem from "../Product/ProductItem";
+import LoadingSpinner from "../UI/LoadingSpinner";
+import { CaretRight, CaretLeft } from "phosphor-react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 // import Swiper core and required modules
@@ -42,7 +41,6 @@ const FavoriteProduct = (props) => {
   return (
     <section className="favorite-section container">
       <Swiper
-        // install Swiper modules
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={30}
         slidesPerView={3}
@@ -84,14 +82,7 @@ const FavoriteProduct = (props) => {
         {dataRender.map((ele, ind) => {
           return (
             <SwiperSlide key={ind}>
-              <ProductItem
-                key={ind}
-                isSale={true}
-                name={ele.name}
-                price={ele.price}
-                priceSale={ele.priceSale}
-                imageUrl={ele.image}
-              />
+              <ProductItem isSale={true} key={ind} product={ele} />
             </SwiperSlide>
           );
         })}

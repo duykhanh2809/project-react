@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import CheckContext from "../../store/ContextAPI/check-context";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
@@ -33,4 +33,4 @@ const ServiceNav = function (props) {
   );
 };
 
-export default ServiceNav;
+export default React.memo(ServiceNav);

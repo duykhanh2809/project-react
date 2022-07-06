@@ -7,7 +7,7 @@ const ProductItem = (props) => {
   const productCtx = useContext(CheckContext);
 
   const viewItemHandler = () => {
-    const productsId = props.name.toLowerCase().replaceAll(" ", "-");
+    const productsId = props.product.name.toLowerCase().replaceAll(" ", "-");
     navigate(`/products/${productsId}`, { replace: true });
     productCtx.setChangingProduct(true);
   };
@@ -17,25 +17,27 @@ const ProductItem = (props) => {
       {props.isSale && <span className="text-describe">-30%</span>}
 
       <img
-        src={props.imageUrl.first}
+        src={props.product.image.first}
         alt="Shoe 1"
         className="product-item__img"
       />
 
       <img
-        src={props.imageUrl.second}
+        src={props.product.image.second}
         alt="Shoe 1"
         className="product-item__img product-item__img--hover"
       />
 
       <figcaption>
-        <p className="sub-heading">{props.name}</p>
+        <p className="sub-heading">{props.product.name}</p>
         {props.isSale && (
           <p className="text-describe">
-            <del>€{props.price}</del>€{props.priceSale}
+            <del>€{props.product.price}</del>€{props.product.priceSale}
           </p>
         )}
-        {!props.isSale && <p className="text-describe">€{props.price}</p>}
+        {!props.isSale && (
+          <p className="text-describe">€{props.product.price}</p>
+        )}
       </figcaption>
     </figure>
   );

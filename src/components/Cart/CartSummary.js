@@ -1,10 +1,10 @@
-import { useSelector, useDispatch } from "react-redux";
-import CartItem from "./CartItem";
 import { useState, useContext, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { cartSliceActions } from "../../store/redux/cart-slice";
 import CheckContext from "../../store/ContextAPI/check-context";
+import CartItem from "./CartItem";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { cartSliceActions } from "../../store/redux/cart-slice";
 
 const CartSummary = function () {
   const { cancelCheck } = useContext(CheckContext);

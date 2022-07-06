@@ -1,8 +1,7 @@
 import { useEffect } from "react";
-
+import useFetch from "../../hooks/use-fetch";
 import ProductItem from "../Product/ProductItem";
 import LoadingSpinner from "../UI/LoadingSpinner";
-import useFetch from "../../hooks/use-fetch";
 import ErrorBoundary from "../UI/ErrorBoundary";
 
 const AllFootwear = function () {
@@ -24,14 +23,7 @@ const AllFootwear = function () {
           {dataRender.map((ele, ind) => {
             if (ind < 6)
               return (
-                <ProductItem
-                  key={ind}
-                  name={ele.name}
-                  isSale={ele.priceSale}
-                  price={ele.price}
-                  priceSale={ele.priceSale}
-                  imageUrl={ele.image}
-                />
+                <ProductItem key={ind} product={ele} isSale={ele.priceSale} />
               );
           })}
         </div>
@@ -39,14 +31,7 @@ const AllFootwear = function () {
           {dataRender.map((ele, ind) => {
             if (ind > 5)
               return (
-                <ProductItem
-                  key={ind}
-                  name={ele.name}
-                  isSale={ele.priceSale}
-                  price={ele.price}
-                  priceSale={ele.priceSale}
-                  imageUrl={ele.image}
-                />
+                <ProductItem key={ind} product={ele} isSale={ele.priceSale} />
               );
           })}
         </div>

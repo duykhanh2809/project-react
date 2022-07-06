@@ -3,6 +3,7 @@ import FooterForm from "./FooterForm";
 import FooterPayments from "./FooterPayments";
 
 const FooterDefault = () => {
+  // console.log("Default is checking");
   return (
     <Fragment>
       <footer className="footer container">

@@ -1,4 +1,3 @@
-import { useRef, useState } from "react";
 import ProductSelect from "./ProductSelect";
 
 const ProductBuy = function (props) {

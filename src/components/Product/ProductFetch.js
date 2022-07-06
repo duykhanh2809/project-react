@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import useFetch from "../../hooks/use-fetch";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import ProductDetails from "./ProductDetails";
-import useFetch from "../../hooks/use-fetch";
 import ErrorBoundary from "../UI/ErrorBoundary";
 
 const ProductFetch = () => {

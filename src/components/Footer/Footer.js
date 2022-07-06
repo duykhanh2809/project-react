@@ -9,6 +9,7 @@ const getScreenWidth = function () {
 
 const Footer = () => {
   const width = getScreenWidth();
+  // console.log("re-render");
   const [isScreenQueries, setIsScreenQueries] = useState(
     width > 850 ? false : true
   );
@@ -16,14 +17,16 @@ const Footer = () => {
   useEffect(() => {
     const checkWidth = () => {
       const width = getScreenWidth();
+      // console.log("Screen width check");
       setIsScreenQueries(width > 850 ? false : true);
     };
-
     window.addEventListener("resize", checkWidth);
+
     return () => {
       window.removeEventListener("resize", checkWidth);
     };
   }, []);
+
   return (
     <Fragment>
       {!isScreenQueries && <FooterDefault />}

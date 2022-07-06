@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { useState, useContext, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import ProductNav from "./ProductNav";
 import ServiceNav from "./ServiceNav";
 import CheckAccount from "../Account/CheckAccount";
@@ -42,7 +42,7 @@ const HeaderDefault = (props) => {
         ETQ.
       </Link>
       <nav className="header__nav">
-        <ProductNav page={props.pages} />
+        <ProductNav />
         <ServiceNav
           isChecking={accountCtx.isAccountChecking || accountCtx.isCartChecking}
         />

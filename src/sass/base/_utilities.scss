@@ -10,6 +10,7 @@
   font-size: 1.6rem;
   font-weight: 600;
   color: rgb(228, 37, 37);
+  padding-top: 12rem;
 }
 
 .flex-right {
@@ -21,6 +22,9 @@
   display: none !important;
 }
 
+.loading-fallback {
+  padding-top: 12rem;
+}
 /***********************/
 
 .mg-bt-small {

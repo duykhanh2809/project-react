@@ -1,11 +1,8 @@
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router";
 
 const AccountRegister = function () {
-  const navigate = useNavigate();
-  ///////////
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -36,15 +33,6 @@ const AccountRegister = function () {
 
   const submitHandler = (event) => {
     event.preventDefault();
-
-    // const update = () =>
-    //   toast("Please waiting...", {
-    //     position: toast.POSITION.TOP_CENTER,
-    //     className: "info-bar",
-    //     // autoClose: 1500,
-    //   });
-
-    // update();
 
     const postSignupToServer = async function () {
       const response = await fetch(

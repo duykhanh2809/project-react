@@ -22,16 +22,7 @@ const Sale = function () {
           {isLoading && <LoadingSpinner />}
           {hasError && <p className="error-boundary">{hasError}</p>}
           {dataRender.map((ele, ind) => {
-            return (
-              <ProductItem
-                isSale={true}
-                key={ind}
-                name={ele.name}
-                price={ele.price}
-                priceSale={ele.priceSale}
-                imageUrl={ele.image}
-              />
-            );
+            return <ProductItem isSale={true} key={ind} product={ele} />;
           })}
         </div>
       </div>
