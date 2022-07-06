@@ -2,7 +2,7 @@ const ProductInfo = function () {
   return (
     <div className="product-info container">
       <div className="product__description">
-        <h3 className="heading-tertiary mg-bt-large">Description</h3>
+        <h3 className="heading-tertiary product-info__heading">Description</h3>
         <p className="mg-bt-medium">
           This classic off-court sneaker comes in matching suede and nubuck
           leather. Built to last. With a nod to deconstructed silhouettes. The
@@ -33,7 +33,7 @@ const ProductInfo = function () {
         </ul>
       </div>
       <div className="product__information">
-        <h3 className="heading-tertiary mg-bt-large">Information</h3>
+        <h3 className="heading-tertiary product-info__heading">Information</h3>
         <div className="product__shipping">
           <p className="sub-heading">Shipping</p>
           <span>

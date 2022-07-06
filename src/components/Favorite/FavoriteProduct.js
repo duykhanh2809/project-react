@@ -49,6 +49,20 @@ const FavoriteProduct = (props) => {
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
+        breakpoints={{
+          // when window width is >= 0px
+          0: {
+            slidesPerView: 1,
+          },
+          // when window width is >= 600px
+          600: {
+            slidesPerView: 2,
+          },
+          // when window width is >= 700px
+          700: {
+            slidesPerView: 3,
+          },
+        }}
       >
         <div className="favorite__heading">
           {!props.anotherSite && (
@@ -57,7 +71,7 @@ const FavoriteProduct = (props) => {
           {props.anotherSite && (
             <h2 className="heading-secondary">You might also like</h2>
           )}
-          <div>
+          <div className="favorite__heading-btn">
             <SwiperButtonPrev>
               <CaretLeft size={16} color="black" weight="bold" />
             </SwiperButtonPrev>

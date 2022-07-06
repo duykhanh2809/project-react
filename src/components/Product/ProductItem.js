@@ -10,11 +10,6 @@ const ProductItem = (props) => {
     const productsId = props.name.toLowerCase().replaceAll(" ", "-");
     navigate(`/products/${productsId}`, { replace: true });
     productCtx.setChangingProduct(true);
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
   };
 
   return (

@@ -43,7 +43,9 @@ const HeaderDefault = (props) => {
       </Link>
       <nav className="header__nav">
         <ProductNav page={props.pages} />
-        <ServiceNav />
+        <ServiceNav
+          isChecking={accountCtx.isAccountChecking || accountCtx.isCartChecking}
+        />
       </nav>
       <Cart />
       <CSSTransition

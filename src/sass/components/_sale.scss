@@ -1,7 +1,10 @@
 .pages-sale {
-  // padding: 3rem 4rem;
   padding: 13rem 4rem 3rem;
   text-align: center;
+
+  @media only screen and (max-width: $bp-ex-small) {
+    padding: 11rem 1.7rem;
+  }
 
   &__grid {
     display: grid;

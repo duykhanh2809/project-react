@@ -4,6 +4,15 @@
     display: flex;
     gap: 3rem;
     margin-bottom: 8rem;
+
+    @media only screen and (max-width: $bp-middle) {
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    @media only screen and (max-width: $bp-ex-small) {
+      padding: 3rem 1.7rem;
+    }
   }
 
   &__img {

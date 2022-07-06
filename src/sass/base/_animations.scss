@@ -59,3 +59,67 @@
   opacity: 0;
   transition: all 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
 }
+
+// Icon header queries
+.fade-icon-enter {
+  opacity: 0;
+}
+
+.fade-icon-enter-active {
+  opacity: 1;
+  transition: opacity 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
+}
+
+.fade-icon-exit {
+  opacity: 1;
+}
+
+.fade-icon-exit-active {
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
+}
+
+// Navigation header queries
+.fade-nav-enter {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.fade-nav-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
+}
+
+.fade-nav-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.fade-nav-exit-active {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 0.2s cubic-bezier(0, 0.34, 0.64, 0.47);
+}
+
+// Footer accordion
+.fade-footer-enter {
+  opacity: 0;
+}
+
+.fade-footer-enter-active {
+  opacity: 1;
+
+  transition: all 0.3s cubic-bezier(0, 0.34, 0.64, 0.47);
+}
+
+.fade-footer-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.fade-footer-exit-active {
+  opacity: 0;
+  transform: translateY(-40%);
+  transition: all 0.3s cubic-bezier(0, 0.34, 0.64, 0.47);
+}

@@ -18,14 +18,25 @@ body {
 .heading-tertiary {
   font-size: 1.4rem;
   font-weight: 700;
+
+  @media only screen and (max-width: $bp-middle) {
+    font-size: 1.6rem;
+  }
 }
 
 .sub-heading {
   font-size: 1.4rem;
   font-weight: 600;
+
+  @media only screen and (max-width: $bp-middle) {
+    font-size: 1.6rem;
+  }
 }
 
 .text-describe {
   font-size: 1.4rem;
   color: var(--color-grey-dark-2);
+  @media only screen and (max-width: $bp-middle) {
+    font-size: 1.6rem;
+  }
 }

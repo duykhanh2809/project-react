@@ -2,6 +2,10 @@
   &-section {
     padding: 3rem 4rem;
     overflow: hidden;
+
+    @media only screen and (max-width: $bp-ex-small) {
+      padding: 2rem 1.7rem;
+    }
   }
 
   &__heading {
@@ -9,10 +13,20 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 3rem;
+  }
 
-    div {
-      display: flex;
-      gap: 0.8rem;
+  &__heading-btn {
+    display: flex;
+    gap: 0.8rem;
+
+    @media only screen and (max-width: $bp-ex-small) {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      z-index: 10;
+      justify-content: space-between;
     }
   }
 
@@ -27,6 +41,10 @@
 
     &:hover {
       cursor: pointer;
+    }
+
+    @media only screen and (max-width: $bp-ex-small) {
+      background-color: rgba($color: #ffffff, $alpha: 0.7);
     }
   }
 

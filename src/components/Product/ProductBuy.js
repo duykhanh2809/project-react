@@ -4,7 +4,7 @@ import ProductSelect from "./ProductSelect";
 const ProductBuy = function (props) {
   return (
     <div className="product-buy">
-      <div>
+      <div className="product-buy__intro">
         <h1 className="heading-primary">{props.productData.name}</h1>
         {props.productData.priceSale && (
           <p className="text-describe mg-bt-medium">

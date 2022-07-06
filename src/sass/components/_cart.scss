@@ -20,6 +20,15 @@
       width: 45%;
       padding-top: 6rem;
     }
+
+    @media only screen and (max-width: $bp-medium) {
+      width: 50%;
+    }
+
+    @media only screen and (max-width: $bp-middle) {
+      max-height: 98vh;
+      width: 100%;
+    }
   }
 
   &__summary {
@@ -35,6 +44,20 @@
       z-index: 10;
       width: 50%;
     }
+
+    @media only screen and (max-width: $bp-medium) {
+      width: 60%;
+    }
+
+    @media only screen and (max-width: $bp-middle) {
+      width: 90%;
+    }
+
+    @media only screen and (max-width: $bp-ex-small) {
+      .cart__show {
+        max-height: 60vh;
+      }
+    }
   }
 
   &__orders {
@@ -46,6 +69,10 @@
       margin-bottom: 1rem;
       font-size: 1.3rem;
       color: var(--color-black);
+
+      @media only screen and (max-width: $bp-middle) {
+        font-size: 1.6rem;
+      }
     }
 
     input {
@@ -54,10 +81,9 @@
       border: 1px solid var(--color-grey-light-4);
       font-family: inherit;
       margin-bottom: 1rem;
-
-      &:focus {
-        outline: 1px solid var(--color-grey-light-2);
-      }
+    }
+    input:focus {
+      outline: 1px solid var(--color-grey-light-2);
     }
   }
 
@@ -69,12 +95,19 @@
     button {
       margin: 0;
       font-size: 1.3rem;
+
+      @media only screen and (max-width: $bp-middle) {
+        font-size: 1.6rem;
+      }
     }
   }
 
   &__show {
     max-height: 58vh;
     overflow-y: auto;
+    @media only screen and (max-width: $bp-ex-small) {
+      max-height: 80vh;
+    }
   }
 
   &__show-modify {
@@ -92,6 +125,11 @@
 
     &:not(:last-child) {
       border-bottom: 1px solid var(--color-grey-light-4);
+    }
+
+    @media only screen and (max-width: $bp-middle) {
+      font-size: 1.6rem;
+      color: var(--color-grey-dark-1);
     }
   }
 
@@ -126,5 +164,10 @@
     border-top: 1px solid var(--color-grey-light-4);
     border-bottom: 1px solid var(--color-grey-light-4);
     font-size: 1.3rem;
+
+    @media only screen and (max-width: $bp-middle) {
+      font-size: 1.6rem;
+      color: var(--color-grey-dark-1);
+    }
   }
 }

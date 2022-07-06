@@ -2,15 +2,20 @@
   &-details {
     padding: 10rem 6rem 3rem 4rem;
 
-    & .favorite-section {
+    .favorite-section {
       padding: 0;
     }
 
     @media only screen and (max-width: $bp-large) {
       padding: 0 0 4rem;
-
       .favorite-section {
         padding: 0 4rem;
+      }
+    }
+
+    @media only screen and (max-width: $bp-ex-small) {
+      .favorite-section {
+        padding: 0 1.7rem;
       }
     }
   }
@@ -24,6 +29,9 @@
     @media only screen and (max-width: $bp-large) {
       padding-top: 0;
       flex-direction: column;
+    }
+    @media only screen and (max-width: $bp-ex-small) {
+      margin-bottom: 6rem;
     }
   }
 
@@ -42,27 +50,56 @@
     align-items: flex-start;
     gap: 1.4rem;
 
-    &__offer {
-      list-style: none;
-      margin-left: 1.8rem;
-      li {
-        position: relative;
-        line-height: 1.6;
-      }
-
-      li:not(:last-child) {
-        margin-bottom: 1rem;
-      }
-    }
-
     @media only screen and (max-width: $bp-large) {
       padding: 0 4rem;
       flex-direction: row;
       gap: 3rem;
+    }
 
-      div {
-        flex-basis: 50%;
-      }
+    @media only screen and (max-width: $bp-small) {
+      flex-wrap: wrap;
+    }
+
+    @media only screen and (max-width: $bp-ex-small) {
+      padding: 0 1.7rem;
+    }
+  }
+
+  &-buy__intro {
+    @media only screen and (max-width: $bp-large) {
+      flex-basis: 50%;
+    }
+    @media only screen and (max-width: $bp-small) {
+      flex: 1 1 100%;
+    }
+  }
+
+  &-buy__select {
+    display: flex;
+    flex-direction: column;
+    @media only screen and (max-width: $bp-large) {
+      flex-basis: 50%;
+    }
+    @media only screen and (max-width: $bp-small) {
+      flex: 1 1 100%;
+    }
+  }
+
+  &-buy__offer {
+    list-style: none;
+    margin-left: 1.8rem;
+  }
+
+  &-buy__offer li {
+    position: relative;
+    line-height: 1.6;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      line-height: 1.4;
     }
   }
 
@@ -77,11 +114,6 @@
     background-image: url(../../assets/img/svg/iconmonstr-check-mark-17_small.svg);
     background-repeat: no-repeat;
     background-size: cover;
-  }
-
-  &-buy__select {
-    display: flex;
-    flex-direction: column;
   }
 
   &-buy__guide {
@@ -111,6 +143,19 @@
       font-weight: 300;
       color: var(--color-grey-dark-1);
     }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: row;
+      gap: 1rem;
+
+      & > * {
+        flex: 1 1 50%;
+      }
+    }
+
+    @media only screen and (max-width: $bp-ex-small) {
+      flex-direction: column;
+    }
   }
 
   &-info {
@@ -122,6 +167,22 @@
 
     @media only screen and (max-width: $bp-large) {
       padding: 0 4rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+    }
+
+    @media only screen and (max-width: $bp-ex-small) {
+      padding: 0 1.7rem;
+      gap: 4rem;
+    }
+  }
+
+  &-info__heading {
+    margin-bottom: 4rem;
+    @media only screen and (max-width: $bp-ex-small) {
+      margin-bottom: 2rem;
     }
   }
 
@@ -155,5 +216,9 @@
     & div:not(:last-child) {
       margin-bottom: 2rem;
     }
+  }
+
+  &-error > * {
+    padding-top: 12rem;
   }
 }

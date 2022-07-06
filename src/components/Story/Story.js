@@ -14,7 +14,7 @@ const DUMMY_DATA = [
   [
     "https://cdn.shopify.com/s/files/1/0505/9044/9849/articles/Journal_HowIt_sMade_Small2_400x.jpg?v=1621353623",
     "How it's made",
-    "Sneakers made like shoes.",
+    "Sneakers made like...",
   ],
 ];
 

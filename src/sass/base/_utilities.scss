@@ -1,20 +1,3 @@
-.pad-bottom {
-  padding-bottom: 2px;
-}
-.flex-right {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.grid--2-cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.hidden {
-  display: none;
-}
-
 .copyright {
   align-self: flex-end;
   font-size: 2.4rem;
@@ -27,6 +10,15 @@
   font-size: 1.6rem;
   font-weight: 600;
   color: rgb(228, 37, 37);
+}
+
+.flex-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hidden {
+  display: none !important;
 }
 
 /***********************/
@@ -61,6 +53,12 @@
   }
 }
 
+.swiper-wrapper {
+  @media only screen and (max-width: $bp-ex-small) {
+    position: relative;
+  }
+}
+
 .swiper .product-item__img--hover {
   max-height: 88.5%;
 
@@ -68,8 +66,29 @@
     max-height: 89.4%;
   }
 
+  @media only screen and (max-width: 1120px) {
+    max-height: 86%;
+  }
   @media only screen and (max-width: $bp-large) {
     max-height: 84.5%;
+  }
+
+  @media only screen and (max-width: 900px) {
+    max-height: 82.4%;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    max-height: 85%;
+  }
+  @media only screen and (max-width: $bp-middle) {
+    max-height: 86%;
+  }
+  @media only screen and (max-width: $bp-small) {
+    max-height: 93%;
+  }
+
+  @media only screen and (max-width: $bp-ex-small) {
+    max-height: 87.5%;
   }
 }
 

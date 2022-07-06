@@ -28,8 +28,10 @@ const ProductFetch = () => {
   return (
     <ErrorBoundary>
       <section className="product-details">
-        {isLoading && <LoadingSpinner />}
-        {hasError && <p className="error-boundary">{hasError}</p>}
+        <div className="product-error">
+          {isLoading && <LoadingSpinner />}
+          {hasError && <p className="error-boundary">{hasError}</p>}
+        </div>
         {dataItem && <ProductDetails productData={dataItem} />}
       </section>
     </ErrorBoundary>

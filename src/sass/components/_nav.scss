@@ -23,5 +23,16 @@
     .btn-nav {
       color: var(--color-white);
     }
+
+    .btn-nav::after {
+      background-color: var(--color-white);
+    }
+  }
+}
+
+.service-modify {
+  color: var(--color-black);
+  .btn-nav {
+    color: var(--color-black);
   }
 }

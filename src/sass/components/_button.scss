@@ -7,6 +7,10 @@
   &-create {
     @extend %btn-special;
     font-weight: 600;
+
+    @media only screen and (max-width: $bp-middle) {
+      font-size: 1.6rem;
+    }
   }
 
   &-create:disabled {
@@ -19,6 +23,10 @@
     font-size: 1.2rem;
     position: relative;
     overflow: hidden;
+    @media only screen and (max-width: $bp-middle) {
+      font-size: 1.4rem;
+      color: var(--color-grey-dark-1);
+    }
   }
 
   &-remove::after {
@@ -36,6 +44,9 @@
     position: relative;
     overflow: hidden;
     padding-bottom: 2px;
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 1.4rem;
+    }
   }
 
   &-nav::after {
@@ -83,8 +94,6 @@
     &:link,
     &:visited {
       @extend %link-hover;
-      // transition: opacity 1s linear, transform 2s linear;
-      // transition-delay: 0.9s;
     }
 
     &::after {
@@ -95,7 +104,6 @@
 
     &:hover::after {
       @include hoverEffect(right, 0);
-      // transition-delay: 0s;
     }
   }
   // Initial state not have underline
@@ -130,8 +138,8 @@
   &-login {
     &:link,
     &:visited {
-      text-decoration: none;
       @extend %btn-special;
+      text-decoration: none;
       font-weight: 500;
     }
   }

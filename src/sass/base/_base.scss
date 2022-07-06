@@ -8,17 +8,13 @@
 
 :root {
   --color-black: #000;
-
   --color-grey-dark-1: #222;
   --color-grey-dark-2: #333;
-
   --color-grey-light-1: #777;
   --color-grey-light-2: #929292;
   --color-grey-light-3: #ddd;
   --color-grey-light-4: #eaeaea;
-
   --color-white: #fff;
-
   --color-selection: #55c57a;
 }
 
@@ -29,9 +25,10 @@ html {
   @media only screen and (max-width: $bp-medium) {
     font-size: 50%;
   }
-}
 
-body {
+  @media only screen and (max-width: $bp-ex-small) {
+    font-size: 62.5%;
+  }
 }
 
 .container {

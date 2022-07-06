@@ -8,6 +8,9 @@
 
   // custom
   position: relative;
+  &:hover {
+    cursor: pointer;
+  }
 
   &__img {
     max-height: 80%;
@@ -35,9 +38,5 @@
     top: 3%;
     left: 4%;
     color: var(--color-grey-light-1);
-  }
-
-  &:hover {
-    cursor: pointer;
   }
 }

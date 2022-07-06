@@ -1,15 +1,27 @@
 .account {
-  // padding: 3rem 4rem;
   padding: 12rem 4rem 3rem;
   margin-top: 3rem;
-  //custom
   position: relative;
+
+  @media only screen and (max-width: $bp-middle) {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-ex-small) {
+    padding: 3rem 1.7rem;
+  }
 
   &-details {
     margin-left: 25vw;
 
-    h2 {
-      margin-bottom: 2.5rem;
+    @media only screen and (max-width: $bp-middle) {
+      margin-left: 0;
+    }
+
+    @media only screen and (max-width: $bp-ex-small) {
+      margin-bottom: 6rem;
     }
   }
 
@@ -30,6 +42,20 @@
       top: 0;
       margin-top: 9.5rem;
     }
+
+    @media only screen and (max-width: $bp-middle) {
+      position: initial;
+      margin-top: 2rem;
+      padding: 3rem 0;
+      margin-bottom: 4rem;
+
+      .heading-tertiary {
+        margin-bottom: 1.5rem;
+      }
+    }
+    @media only screen and (max-width: $bp-ex-small) {
+      margin-bottom: 6rem;
+    }
   }
 
   &__options {
@@ -46,6 +72,10 @@
     row-gap: 1rem;
     font-size: 1.4rem;
 
+    @media only screen and (max-width: $bp-middle) {
+      grid-template-columns: 1fr;
+    }
+
     label {
       display: block;
       margin-bottom: 1rem;
@@ -56,10 +86,10 @@
       padding: 1.4rem;
       border: 1px solid var(--color-grey-light-4);
       font-family: inherit;
+    }
 
-      &:focus {
-        outline: 1px solid var(--color-grey-light-2);
-      }
+    input:focus {
+      outline: 1px solid var(--color-grey-light-2);
     }
 
     input[type="radio"] {
@@ -83,6 +113,10 @@
 
     .btn-create {
       justify-self: end;
+
+      @media only screen and (max-width: $bp-ex-small) {
+        justify-self: stretch;
+      }
     }
   }
 
@@ -100,6 +134,14 @@
       margin-left: 0;
     }
 
+    @media only screen and (max-width: $bp-middle) {
+      margin-right: 0;
+    }
+
+    @media only screen and (max-width: $bp-ex-small) {
+      grid-template-columns: 1fr;
+    }
+
     label {
       display: block;
       margin-bottom: 1rem;
@@ -114,6 +156,10 @@
       @media only screen and (max-width: $bp-large) {
         width: 65%;
       }
+
+      @media only screen and (max-width: $bp-middle) {
+        width: 100%;
+      }
     }
 
     input:focus {
@@ -126,6 +172,9 @@
 
     .btn-create {
       justify-self: end;
+      @media only screen and (max-width: $bp-ex-small) {
+        justify-self: stretch;
+      }
     }
   }
 
@@ -136,10 +185,17 @@
 
     div {
       flex: 0 1 40%;
+      @media only screen and (max-width: $bp-middle) {
+        flex: 1;
+      }
     }
 
     .btn-default {
       padding-bottom: 0;
+    }
+
+    @media only screen and (max-width: $bp-ex-small) {
+      flex-direction: column;
     }
   }
 

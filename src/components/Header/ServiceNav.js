@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import CheckContext from "../../store/ContextAPI/check-context";
 import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 const ServiceNav = function (props) {
+  const location = useLocation();
   const checkCtx = useContext(CheckContext);
   const nameAccount = useSelector(
     (state) => state.account.userData.displayName
@@ -13,8 +15,13 @@ const ServiceNav = function (props) {
     checkCtx.setAccountChecking();
   };
 
+  const serviceClasses =
+    location.pathname !== "/" || props.isChecking
+      ? "service service-modify"
+      : "service";
+
   return (
-    <ul className="service">
+    <ul className={serviceClasses}>
       <li>Search</li>
       <li>Help</li>
       <li>
