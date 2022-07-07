@@ -14,13 +14,13 @@ const CartItem = (props) => {
   useEffect(() => {
     if (!itemDeleted) return;
     dispatch(removeItem(itemDeleted));
-  }, [itemDeleted]);
+  }, [itemDeleted, dispatch]);
 
   return (
     <div className="cart__item">
       <img
         src={props.productSelected.imageCart}
-        alt="Image product"
+        alt="product show preview"
         className="cart__item-img"
       />
       <div className="cart__item-info">
@@ -32,13 +32,20 @@ const CartItem = (props) => {
       <div className="cart__item-price">
         <div>
           {props.productSelected.priceSale && (
-            <del>€{props.productSelected.price}</del>
+            <del>
+              €{props.productSelected.price * props.productSelected.quantity}
+            </del>
           )}
           {props.productSelected.priceSale && (
-            <p>€{props.productSelected.priceSale}</p>
+            <p>
+              €
+              {props.productSelected.priceSale * props.productSelected.quantity}
+            </p>
           )}
           {!props.productSelected.priceSale && (
-            <p>€{props.productSelected.price}</p>
+            <p>
+              €{props.productSelected.price * props.productSelected.quantity}
+            </p>
           )}
         </div>
         <button className="btn btn-remove" onClick={removeItemHandler}>

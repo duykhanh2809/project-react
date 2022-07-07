@@ -25,7 +25,7 @@ const ProductSelect = function (props) {
   useEffect(() => {
     if (cart.length === 0) return;
     dispatch(addItem(cart));
-  }, [cart]);
+  }, [cart, dispatch]);
 
   const changeSizeHandler = (event) => {
     setSize(event.target.value);

@@ -73,6 +73,9 @@
     color: var(--color-black);
     // custom for header media queries
     z-index: 4;
+    @media only screen and (max-width: $bp-medium) {
+      z-index: 3;
+    }
     @media only screen and (max-width: $bp-middle) {
       font-size: 2.8rem;
     }

@@ -22,6 +22,7 @@
     }
 
     @media only screen and (max-width: $bp-medium) {
+      z-index: 3;
       width: 50%;
     }
 
@@ -54,9 +55,13 @@
     }
 
     @media only screen and (max-width: $bp-ex-small) {
-      .cart__show {
-        max-height: 60vh;
-      }
+      max-height: 90vh;
+    }
+  }
+
+  &__summary-modify &__show {
+    @media only screen and (max-width: $bp-small) {
+      max-height: 25vh;
     }
   }
 
@@ -105,13 +110,6 @@
   &__show {
     max-height: 58vh;
     overflow-y: auto;
-    @media only screen and (max-width: $bp-ex-small) {
-      max-height: 80vh;
-    }
-  }
-
-  &__show-modify {
-    max-height: 16vh;
   }
 
   &__item {

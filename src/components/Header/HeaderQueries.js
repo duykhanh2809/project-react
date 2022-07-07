@@ -1,5 +1,5 @@
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useState, useContext, useEffect, useRef } from "react";
 import { CaretRight, MagnifyingGlass, List, X } from "phosphor-react";
 import { useSelector } from "react-redux";
 import CheckContext from "../../store/ContextAPI/check-context";
@@ -10,6 +10,7 @@ import { useLocation } from "react-router-dom";
 import CSSTransition from "react-transition-group/CSSTransition";
 
 const HeaderQueries = () => {
+  const nodeRef = React.useRef(null);
   const [isSticky, setIsSticky] = useState("");
   const [isShowNav, setIsShowNav] = useState(false);
   const isLogin = useSelector((state) => state.account.isLoggedIn);
@@ -34,6 +35,7 @@ const HeaderQueries = () => {
   };
 
   const showNavigationHandler = () => {
+    accountCtx.cancelCheck();
     setIsShowNav((prev) => !prev);
   };
 
@@ -60,6 +62,7 @@ const HeaderQueries = () => {
         timeout={500}
         in={isShowNav}
         classNames="fade-nav"
+        nodeRef={nodeRef}
         mountOnEnter
         unmountOnExit
       >
@@ -110,20 +113,22 @@ const HeaderQueries = () => {
 
       <CSSTransition
         timeout={1000}
+        nodeRef={nodeRef}
         mountOnEnter
         unmountOnExit
         classNames="fade-dropdown"
-        in={accountCtx.isCartChecking}
+        in={accountCtx.isCartChecking && !isShowNav}
       >
         <CartDropDown />
       </CSSTransition>
 
       <CSSTransition
         timeout={1000}
+        nodeRef={nodeRef}
         mountOnEnter
         unmountOnExit
         classNames="fade-modal"
-        in={accountCtx.isChecking}
+        in={accountCtx.isChecking && !isShowNav}
       >
         <ModalMain />
       </CSSTransition>

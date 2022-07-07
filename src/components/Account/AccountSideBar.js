@@ -37,7 +37,7 @@ function AccountSideBar() {
     return () => {
       clearTimeout(time);
     };
-  }, [isClicked, accountState]);
+  }, [isClicked, accountState, dispatch, navigate]);
 
   return (
     <aside className="account-sidebar">

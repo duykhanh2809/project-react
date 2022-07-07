@@ -34,7 +34,7 @@ const CheckAccount = function () {
     return () => {
       clearTimeout(time);
     };
-  }, [isClicked, accountState]);
+  }, [isClicked, accountState, dispatch, checkCtx]);
 
   return (
     <div className="check">

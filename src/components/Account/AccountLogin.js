@@ -77,7 +77,7 @@ const AccountLogin = function () {
   useEffect(() => {
     if (!idUser) return;
     dispatch(fetchDataUser(idUser));
-  }, [idUser]);
+  }, [idUser, dispatch]);
 
   return (
     <div className="account-details">

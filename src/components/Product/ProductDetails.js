@@ -13,7 +13,7 @@ const ProductDetails = (props) => {
             return (
               <img
                 src={ele}
-                alt="Image details"
+                alt="details of shoes"
                 key={ind}
                 className="product-img"
               />

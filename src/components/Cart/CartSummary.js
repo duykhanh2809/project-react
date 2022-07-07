@@ -48,16 +48,18 @@ const CartSummary = function () {
       cancelCheck();
     }, 2500);
     return () => clearTimeout(time);
-  }, [orderSuccess]);
+  }, [orderSuccess, cancelCheck, dispatch]);
 
-  const cartClasses = isConfirm ? "cart__show cart__show-modify" : "cart__show";
+  const cartClasses = isConfirm
+    ? "cart__summary cart__summary-modify"
+    : "cart__summary";
 
   return (
-    <div className="cart__summary">
+    <div className={cartClasses}>
       <h3 className="heading-tertiary mg-bt-medium">
         Please check again the information of order
       </h3>
-      <div className={cartClasses}>
+      <div className="cart__show">
         {allItems.map((item, ind) => {
           return <CartItem productSelected={item} key={ind} />;
         })}

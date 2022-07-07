@@ -25,6 +25,7 @@ const AllFootwear = function () {
               return (
                 <ProductItem key={ind} product={ele} isSale={ele.priceSale} />
               );
+            return;
           })}
         </div>
         <div className="pages-all__grid-custom">
@@ -33,6 +34,7 @@ const AllFootwear = function () {
               return (
                 <ProductItem key={ind} product={ele} isSale={ele.priceSale} />
               );
+            return;
           })}
         </div>
       </div>

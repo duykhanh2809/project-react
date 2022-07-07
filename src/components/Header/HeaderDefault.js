@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import ProductNav from "./ProductNav";
 import ServiceNav from "./ServiceNav";
@@ -11,6 +11,7 @@ import { useLocation } from "react-router-dom";
 import CSSTransition from "react-transition-group/CSSTransition";
 
 const HeaderDefault = (props) => {
+  const nodeRef = React.useRef(null);
   const [isSticky, setIsSticky] = useState("");
   const headerRef = useRef();
   const accountCtx = useContext(CheckContext);
@@ -50,6 +51,7 @@ const HeaderDefault = (props) => {
       <Cart />
       <CSSTransition
         timeout={1000}
+        nodeRef={nodeRef}
         mountOnEnter
         unmountOnExit
         classNames="fade-dropdown"
@@ -60,6 +62,7 @@ const HeaderDefault = (props) => {
 
       <CSSTransition
         timeout={1000}
+        nodeRef={nodeRef}
         mountOnEnter
         unmountOnExit
         classNames="fade-dropdown"
@@ -70,6 +73,7 @@ const HeaderDefault = (props) => {
 
       <CSSTransition
         timeout={1000}
+        nodeRef={nodeRef}
         mountOnEnter
         unmountOnExit
         classNames="fade-modal"

@@ -23,7 +23,7 @@ const ProductFetch = () => {
       "https://project-react-cf626-default-rtdb.firebaseio.com/all.json",
       matchItem
     );
-  }, [productId]);
+  }, [productId, fetchShoesSale]);
 
   return (
     <ErrorBoundary>
