@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { CaretRight, MagnifyingGlass, List, X } from "phosphor-react";
 import { useSelector } from "react-redux";
@@ -10,7 +10,6 @@ import { useLocation } from "react-router-dom";
 import CSSTransition from "react-transition-group/CSSTransition";
 
 const HeaderQueries = () => {
-  const nodeRef = React.useRef(null);
   const [isSticky, setIsSticky] = useState("");
   const [isShowNav, setIsShowNav] = useState(false);
   const isLogin = useSelector((state) => state.account.isLoggedIn);
@@ -62,7 +61,6 @@ const HeaderQueries = () => {
         timeout={500}
         in={isShowNav}
         classNames="fade-nav"
-        nodeRef={nodeRef}
         mountOnEnter
         unmountOnExit
       >
@@ -98,7 +96,7 @@ const HeaderQueries = () => {
               </Link>
             </li>
             <li className="header__navigation-option">
-              <Link to="/">
+              <Link to="/search">
                 <span>Search</span>
                 <MagnifyingGlass size={20} color="black" weight="bold" />
               </Link>
@@ -113,7 +111,6 @@ const HeaderQueries = () => {
 
       <CSSTransition
         timeout={1000}
-        nodeRef={nodeRef}
         mountOnEnter
         unmountOnExit
         classNames="fade-dropdown"
@@ -124,7 +121,6 @@ const HeaderQueries = () => {
 
       <CSSTransition
         timeout={1000}
-        nodeRef={nodeRef}
         mountOnEnter
         unmountOnExit
         classNames="fade-modal"

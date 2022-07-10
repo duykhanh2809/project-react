@@ -8,7 +8,7 @@ const ProductItem = (props) => {
 
   const viewItemHandler = () => {
     const productsId = props.product.name.toLowerCase().replaceAll(" ", "-");
-    navigate(`/products/${productsId}`, { replace: true });
+    navigate(`/products/${productsId}`, { replace: false });
     productCtx.setChangingProduct(true);
   };
 

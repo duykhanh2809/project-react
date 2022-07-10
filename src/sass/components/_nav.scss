@@ -3,7 +3,7 @@
   display: flex;
   align-items: baseline;
   gap: 2.8rem;
-  color: var(--color-grey);
+  color: var(--color-grey-dark-2);
   font-size: 1.4rem;
   font-weight: 400;
 }
@@ -12,10 +12,19 @@
   list-style: none;
   display: flex;
   gap: 2.8rem;
-  color: var(--color-grey);
+  color: var(--color-grey-dark-2);
   font-size: 1.4rem;
   font-weight: 400;
   z-index: 3;
+
+  .btn-nav {
+    color: var(--color-grey-dark-2);
+  }
+
+  .btn-custom:link,
+  .btn-custom:visited {
+    padding-bottom: 2px;
+  }
 
   @media only screen and (max-width: $bp-large) {
     color: var(--color-white);
@@ -31,8 +40,21 @@
 }
 
 .service-modify {
-  color: var(--color-black);
+  color: var(--color-grey-dark-2);
   .btn-nav {
-    color: var(--color-black);
+    color: var(--color-grey-dark-2);
+  }
+  .btn-nav::after {
+    background-color: var(--color-grey-dark-2);
   }
 }
+
+// .service-modify--search {
+//   color: var(--color-black);
+//   .btn-nav {
+//     color: var(--color-black);
+//   }
+//   .btn-nav::after {
+//     background-color: var(--color-black);
+//   }
+// }

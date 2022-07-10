@@ -2,7 +2,11 @@ import React from "react";
 import { useState } from "react";
 
 const CheckContext = React.createContext({
+  isCartChecking: false,
+  isAccountChecking: false,
+  isOrdering: false,
   isChecking: false,
+  isChangingProduct: false,
 });
 
 export default CheckContext;

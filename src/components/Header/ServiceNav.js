@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import CheckContext from "../../store/ContextAPI/check-context";
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const ServiceNav = function (props) {
   const location = useLocation();
@@ -22,7 +22,11 @@ const ServiceNav = function (props) {
 
   return (
     <ul className={serviceClasses}>
-      <li>Search</li>
+      <li>
+        <Link to={"/search"} className="btn-custom">
+          Search
+        </Link>
+      </li>
       <li>Help</li>
       <li>
         <button className="btn btn-nav" onClick={showCheckAccountHandler}>

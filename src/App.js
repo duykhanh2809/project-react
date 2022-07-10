@@ -10,6 +10,7 @@ import HomePage from "./components/Pages/HomePage";
 import AllFootwear from "./components/AllFootwear/AllFootwear";
 import ProductFetch from "./components/Product/ProductFetch";
 import LoadingSpinner from "./components/UI/LoadingSpinner";
+import Search from "./components/Search/Search";
 const AccountInfo = React.lazy(() =>
   import("./components/Account/AccountInfo")
 );
@@ -35,6 +36,7 @@ function App() {
           <Route path="/shoes" element={<AllFootwear />} />
           <Route path="/products" element={<AllFootwear />} />
           <Route path="/products/:productId" element={<ProductFetch />} />
+          <Route path="/search" element={<Search />} />
         </Routes>
       </Suspense>
     </Layout>

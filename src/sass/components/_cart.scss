@@ -40,6 +40,8 @@
     background-color: white;
     padding: 3rem 4rem;
     width: 40%;
+    max-height: 90vh;
+    z-index: 10;
 
     @media only screen and (max-width: $bp-large) {
       z-index: 10;
@@ -53,16 +55,10 @@
     @media only screen and (max-width: $bp-middle) {
       width: 90%;
     }
-
-    @media only screen and (max-width: $bp-ex-small) {
-      max-height: 90vh;
-    }
   }
 
   &__summary-modify &__show {
-    @media only screen and (max-width: $bp-small) {
-      max-height: 25vh;
-    }
+    max-height: 25vh;
   }
 
   &__orders {
