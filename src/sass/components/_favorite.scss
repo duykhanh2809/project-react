@@ -6,6 +6,9 @@
     @media only screen and (max-width: $bp-ex-small) {
       padding: 2rem 1.7rem;
     }
+
+    // Revealing on scroll
+    transition: all 0.8s;
   }
 
   &__heading {

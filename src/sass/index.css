@@ -140,6 +140,12 @@ del {
   }
 }
 
+.section-reveal {
+  -webkit-transform: translateY(5rem);
+          transform: translateY(5rem);
+  opacity: 0;
+}
+
 .fade-dropdown-enter {
   opacity: 0;
   -webkit-transform: translateY(-100%);
@@ -1652,6 +1658,8 @@ body {
   display: flex;
   gap: 3rem;
   margin-bottom: 3rem;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
 }
 
 @media only screen and (max-width: 65.625em) {
@@ -1779,6 +1787,8 @@ body {
   display: flex;
   gap: 3rem;
   margin-bottom: 8rem;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
 }
 
 @media only screen and (max-width: 43.75em) {
@@ -1816,6 +1826,8 @@ body {
 .favorite-section {
   padding: 3rem 4rem;
   overflow: hidden;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
 }
 
 @media only screen and (max-width: 28.125em) {

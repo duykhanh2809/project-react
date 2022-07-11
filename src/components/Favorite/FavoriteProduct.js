@@ -10,6 +10,7 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { useSwiper } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
+import useReveal from "../../hooks/use-reveal";
 
 const SwiperButtonNext = ({ children }) => {
   const swiper = useSwiper();
@@ -30,6 +31,7 @@ const SwiperButtonPrev = ({ children }) => {
 };
 
 const FavoriteProduct = (props) => {
+  const [isReveal, sectionRef] = useReveal();
   const { isLoading, dataRender, hasError, fetchShoesSale } = useFetch();
 
   useEffect(() => {
@@ -38,8 +40,13 @@ const FavoriteProduct = (props) => {
     );
   }, [fetchShoesSale]);
 
+  const favoriteClasses = !isReveal ? "section-reveal" : "";
+
   return (
-    <section className="favorite-section container">
+    <section
+      className={`favorite-section container ${favoriteClasses}`}
+      ref={sectionRef}
+    >
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={30}

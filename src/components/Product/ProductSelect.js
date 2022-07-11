@@ -20,6 +20,7 @@ const ProductSelect = function (props) {
     }
     setIsClicked(true);
     setCart({ ...props.productData, size });
+    productCtx.setCartChecking();
   };
 
   useEffect(() => {

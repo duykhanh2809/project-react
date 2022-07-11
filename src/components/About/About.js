@@ -1,6 +1,13 @@
+import useReveal from "../../hooks/use-reveal";
+
 function About() {
+  const [isReveal, sectionRef] = useReveal();
+  const aboutClasses = !isReveal ? "section-reveal" : "";
   return (
-    <section className="about-section container">
+    <section
+      className={`about-section container ${aboutClasses}`}
+      ref={sectionRef}
+    >
       <div className="about__item">
         <img
           src="https://cdn.shopify.com/s/files/1/0505/9044/9849/files/Laundry_Store_Homepage-image_750x.jpg?v=1631259918"

@@ -17,6 +17,12 @@
   }
 }
 
+// Revealing on scroll
+.section-reveal {
+  transform: translateY(5rem);
+  opacity: 0;
+}
+
 // CSS Transition Group
 // Dropdown
 .fade-dropdown-enter {

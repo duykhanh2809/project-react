@@ -1,3 +1,4 @@
+import useReveal from "../../hooks/use-reveal";
 import StoryItem from "./StoryItem";
 
 const DUMMY_DATA = [
@@ -19,8 +20,14 @@ const DUMMY_DATA = [
 ];
 
 const Story = function () {
+  const [isReveal, sectionRef] = useReveal();
+  const revealClasses = !isReveal ? "section-reveal" : "";
+
   return (
-    <section className="story-section container">
+    <section
+      className={`story-section ${revealClasses} container`}
+      ref={sectionRef}
+    >
       {DUMMY_DATA.map((ele, ind) => {
         const [imageUrl, heading, describe] = ele;
         return (
