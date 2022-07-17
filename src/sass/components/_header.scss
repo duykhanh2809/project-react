@@ -30,7 +30,7 @@
 
   // sticky navigation
   &__sticky {
-    background-color: rgba($color: #ffffff, $alpha: 0.85);
+    background-color: rgba($color: #ffffff, $alpha: 0.95);
     box-shadow: 0 0 1px var(--color-black) inset;
 
     @media only screen and (min-width: $bp-largest) {
@@ -112,22 +112,6 @@
   &__sticky .product__link {
     color: var(--color-black);
   }
-
-  // /// custom for searchbar on homepage
-  // &-modify--search &__logo {
-  //   color: var(--color-black);
-  // }
-
-  // &-modify--search .btn-custom__modify {
-  //   color: var(--color-black);
-  // }
-  // &-modify--search .btn-custom__modify::after {
-  //   background-color: var(--color-black);
-  // }
-
-  // &-modify--search .product__link {
-  //   color: var(--color-black);
-  // }
 
   //////////////////////
 

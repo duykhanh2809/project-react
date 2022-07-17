@@ -11,6 +11,7 @@ import AllFootwear from "./components/AllFootwear/AllFootwear";
 import ProductFetch from "./components/Product/ProductFetch";
 import LoadingSpinner from "./components/UI/LoadingSpinner";
 import Search from "./components/Search/Search";
+import NotFoundPage from "./components/Pages/NotFoundPage";
 const AccountInfo = React.lazy(() =>
   import("./components/Account/AccountInfo")
 );
@@ -27,6 +28,7 @@ function App() {
       >
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/*" element={<NotFoundPage />} />
           <Route path="/account" element={<Account />}>
             <Route path="signup" element={<AccountRegister />} />
             <Route path="login" element={<AccountLogin />} />
